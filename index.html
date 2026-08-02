@@ -201,6 +201,15 @@ span.ja { display: inline; }
 .sidetabs a:hover { border-color: var(--red); background: var(--paper-2); }
 .sidetabs a.on { background: var(--plate); color: var(--paper-2); border-color: var(--plate); box-shadow: 3px 3px 0 var(--red); }
 .sidetabs a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* 英語表示では各ページタブを Times New Roman に */
+:root[data-lang="en"] .sidetabs a,
+:root[data-lang="en"] .tabs a {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
 @media (min-width: 78rem) {
   .sidetabs { display: flex; }
   .topbar .tabs-nav { display: none; }
@@ -276,7 +285,7 @@ span.ja { display: inline; }
   padding: 5px;
   box-shadow: 0 0 0 2px var(--plate);
 }
-.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate); }
+.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
 .name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: -0.13em; box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
 .name-en-logo .cell {
   font-family: var(--gothic);
@@ -336,6 +345,7 @@ span.ja { display: inline; }
   .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
   .name-en-logo { font-size: clamp(1.1rem, 3.4vw, 2.2rem); }
   .name-en-logo .row { gap: 4px; padding: 4px; }
+  .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
   .name-en-logo .row-2 {
     margin-left: calc(1.6 * (1.30em + 4px));
     box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red);
