@@ -27,7 +27,39 @@
   --plate:    #14110D;
   --hair:     rgba(179, 18, 30, 0.50);
   --shade:    rgba(21, 18, 13, 0.055);
+  --scrim:    231, 223, 204;   /* 地色（古地図の上にかぶせる紗） */
+  --veil:     240, 234, 219;   /* 帯・タブの下地 */
+  --on-dark:  #F2EDE1;         /* 黒箱・深紅の上に載る文字 */
+  --on-dark-2:#B9B2A4;
+  --map-op:   0.30;
+  --map-fx:   sepia(0.25) contrast(0.94);
+  --logo-bg:  transparent;     /* 箱と箱の隙間 */
+  --logo-line: var(--plate);   /* 箱組みの外枠 */
 
+}
+
+/* ---- 夜間表示（灰色地） ---- */
+:root[data-theme="dark"] {
+  --paper:    #2B2A28;
+  --paper-2:  #343330;
+  --paper-3:  #413F3A;
+  --ink:      #E9E4D9;
+  --ink-2:    #BCB5A7;
+  --ink-3:    #8D8578;
+  --red:      #C4202C;
+  --red-ink:  #E5717A;
+  --plate:    #131211;
+  --hair:     rgba(196, 32, 44, 0.55);
+  --shade:    rgba(233, 228, 217, 0.055);
+  --scrim:    43, 42, 40;
+  --veil:     52, 51, 48;
+  --map-op:   0.20;
+  --map-fx:   invert(1) sepia(0.18) contrast(0.82) brightness(0.95);
+  --logo-bg:  #DAD5C9;
+  --logo-line: #DAD5C9;
+}
+
+:root {
   --mincho: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", "YuMincho",
             "Noto Serif JP", "Songti TC", "Songti SC", serif;
   --roman:  "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text",
@@ -59,8 +91,8 @@ body {
   background-image: url("map-1770.jpg");
   background-size: cover;
   background-position: 52% 42%;
-  opacity: 0.30;
-  filter: sepia(0.25) contrast(0.94);
+  opacity: var(--map-op);
+  filter: var(--map-fx);
   pointer-events: none;
 }
 .map-scrim {
@@ -68,7 +100,7 @@ body {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(120% 85% at 50% 30%, rgba(231,223,204,0.58) 0%, rgba(231,223,204,0.86) 55%, rgba(231,223,204,0.95) 100%);
+    radial-gradient(120% 85% at 50% 30%, rgba(var(--scrim),0.58) 0%, rgba(var(--scrim),0.86) 55%, rgba(var(--scrim),0.95) 100%);
   pointer-events: none;
 }
 .layer { position: relative; z-index: 1; }
@@ -92,7 +124,7 @@ span.ja { display: inline; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(231, 223, 204, 0.93);
+  background: rgba(var(--scrim), 0.93);
   backdrop-filter: saturate(140%) blur(6px);
   -webkit-backdrop-filter: saturate(140%) blur(6px);
 }
@@ -141,11 +173,11 @@ span.ja { display: inline; }
   text-decoration: none;
   border: 1.5px solid var(--hair);
   border-radius: 1px;
-  background: rgba(240, 234, 219, 0.55);
+  background: rgba(var(--veil), 0.55);
   transition: background .18s, color .18s, border-color .18s;
 }
 .tabs a:hover { border-color: var(--red); background: var(--paper-2); }
-.tabs a.on { background: var(--plate); color: var(--paper-2); border-color: var(--plate); box-shadow: 2px 2px 0 var(--red); }
+.tabs a.on { background: var(--plate); color: var(--on-dark); border-color: var(--plate); box-shadow: 2px 2px 0 var(--red); }
 .tabs a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 .langs { display: flex; gap: 0.25rem; flex: 0 0 auto; }
@@ -166,6 +198,8 @@ span.ja { display: inline; }
 .lang:hover { color: var(--ink); }
 .lang[aria-pressed="true"] { color: var(--red-ink); border-color: var(--hair); }
 .lang:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.theme-btn { font-size: 1.05rem; line-height: 1; padding: 0.3rem 0.5rem; margin-left: 0.15rem; }
+:root[data-theme="dark"] .theme-btn { color: var(--red-ink); }
 
 /* 広い画面では右側に縦置き。上部の横タブは隠す */
 .sidetabs {
@@ -197,20 +231,20 @@ span.ja { display: inline; }
   text-decoration: none;
   border: 1.5px solid var(--hair);
   border-radius: 1px;
-  background: rgba(240, 234, 219, 0.72);
+  background: rgba(var(--veil), 0.72);
   transition: background .18s, color .18s, border-color .18s;
 }
 .sidetabs a:hover { border-color: var(--red); background: var(--paper-2); }
-.sidetabs a.on { background: var(--plate); color: var(--paper-2); border-color: var(--plate); box-shadow: 3px 3px 0 var(--red); }
+.sidetabs a.on { background: var(--plate); color: var(--on-dark); border-color: var(--plate); box-shadow: 3px 3px 0 var(--red); }
 .sidetabs a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 /* 英語表示では各ページタブを Times New Roman に */
 :root[data-lang="en"] .sidetabs a,
 :root[data-lang="en"] .tabs a {
   font-family: "Times New Roman", Times, serif;
-  font-size: 1.02rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 @media (min-width: 78rem) {
   .sidetabs { display: flex; }
@@ -238,7 +272,7 @@ span.ja { display: inline; }
   aspect-ratio: 1 / 1.14;
   overflow: hidden;
   background: var(--paper-3);
-  box-shadow: 0 0 0 1.5px var(--plate), 6px 6px 0 var(--red);
+  box-shadow: 0 0 0 1.5px var(--logo-line), 6px 6px 0 var(--red);
 }
 .portrait img {
   width: 100%; height: 100%;
@@ -256,7 +290,8 @@ span.ja { display: inline; }
   display: inline-flex;
   gap: 5px;
   padding: 5px;
-  box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red);
+  background: var(--logo-bg);
+  box-shadow: 0 0 0 2px var(--logo-line), 8px 8px 0 var(--red);
 }
 :root[data-lang="en"] .namelogo { display: none; }
 .cell {
@@ -265,7 +300,7 @@ span.ja { display: inline; }
   width: 1.30em;
   height: 1.30em;
   background: var(--plate);
-  color: #F5F0E3;
+  color: var(--on-dark);
   font-family: var(--gothic);
   font-weight: 800;
   font-size: clamp(2.2rem, 6.6vw, 4.3rem);
@@ -285,7 +320,8 @@ span.ja { display: inline; }
   display: inline-flex;
   gap: 5px;
   padding: 5px;
-  box-shadow: 0 0 0 2px var(--plate);
+  background: var(--logo-bg);
+  box-shadow: 0 0 0 2px var(--logo-line);
 }
 .drwrap { display: inline-flex; align-items: center; }
 .drmark {
@@ -297,8 +333,8 @@ span.ja { display: inline; }
   margin-right: 0.12em;
   letter-spacing: -0.01em;
 }
-.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
-.name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: 0.24em; box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
+.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--logo-line), 8px 8px 0 var(--red); }
+.name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: 0.24em; box-shadow: 0 0 0 2px var(--logo-line), 8px 8px 0 var(--red); }
 .name-en-logo .cell {
   font-family: var(--gothic);
   font-weight: 800;
@@ -339,9 +375,9 @@ span.ja { display: inline; }
 .quicklinks { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.9rem 0 0; padding: 0; list-style: none; }
 .quicklinks a {
   font-family: var(--gothic);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.93rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
   padding: 0.42rem 0.95rem;
   border: 1.5px solid var(--hair);
   border-radius: 1px;
@@ -349,25 +385,34 @@ span.ja { display: inline; }
   text-decoration: none;
   transition: background .18s, color .18s, border-color .18s;
 }
-.quicklinks a:hover { background: var(--plate); color: var(--paper-2); border-color: var(--plate); }
+.quicklinks a:hover { background: var(--plate); color: var(--on-dark); border-color: var(--plate); }
 .quicklinks a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 @media (max-width: 54rem) {
   .namecard { gap: 1rem; }
-  .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
+  .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red); }
   .name-en-logo { font-size: clamp(1.1rem, 3.4vw, 2.2rem); }
   .name-en-logo .row { gap: 4px; padding: 4px; }
-  .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
+  .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red); }
   .name-en-logo .row-2 {
-    margin-left: calc(1.6 * (1.30em + 4px));
-    box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red);
+    margin-left: calc(2.6 * (1.30em + 4px));
+    box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red);
   }
-  .portrait { box-shadow: 0 0 0 1.5px var(--plate), 4px 4px 0 var(--red); }
+  .portrait { box-shadow: 0 0 0 1.5px var(--logo-line), 4px 4px 0 var(--red); }
+}
+
+/* 極小画面（320px級）での収まり */
+@media (max-width: 23rem) {
+  .portrait { width: 5.4rem; }
+  .name-en-logo { font-size: 1rem; }
+  .name-en-logo .row-2 { margin-left: calc(2.1 * (1.30em + 4px)); }
+  .cell { font-size: 1.85rem; }
+  .name-en-logo .cell { font-size: 1em; }
 }
 
 /* ============ セクション ============ */
 section { padding: clamp(2.8rem, 7vw, 4.8rem) 0; }
-.band { background: rgba(240, 234, 219, 0.66); }
+.band { background: rgba(var(--veil), 0.66); }
 
 h2 {
   font-family: var(--mincho);
@@ -448,7 +493,7 @@ h3:first-of-type { margin-top: 0; }
   white-space: nowrap;
 }
 .tag.key { border-color: var(--red); color: var(--red-ink); }
-.tag.solid { background: var(--plate); border-color: var(--plate); color: var(--paper-2); }
+.tag.solid { background: var(--plate); border-color: var(--plate); color: var(--on-dark); }
 
 .t-peer::after    { content: "査読有"; }
 .t-invited::after { content: "招待有"; }
@@ -502,7 +547,7 @@ h3:first-of-type { margin-top: 0; }
   white-space: nowrap;
   transition: background .18s, color .18s;
 }
-.doi:hover { background: var(--red); color: #F4EFE2; }
+.doi:hover { background: var(--red); color: var(--on-dark); }
 .doi:focus-visible { outline: 2px solid var(--plate); outline-offset: 2px; }
 
 /* ---- 汎用ブロック ---- */
@@ -539,11 +584,11 @@ h3:first-of-type { margin-top: 0; }
   color: var(--ink);
   transition: background .18s, color .18s, border-color .18s, transform .18s;
 }
-.link-card:hover { background: var(--plate); color: var(--paper-2); border-color: var(--plate); transform: translateY(-2px); }
-.link-card:hover .lc-sub { color: var(--paper-3); }
+.link-card:hover { background: var(--plate); color: var(--on-dark); border-color: var(--plate); transform: translateY(-2px); }
+.link-card:hover .lc-sub { color: var(--on-dark-2); }
 .link-card:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
-.lc-name { font-family: var(--gothic); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; }
-.lc-sub { display: block; font-family: var(--roman); font-size: 0.73rem; color: var(--ink-3); margin-top: 0.18rem; word-break: break-all; transition: color .18s; }
+.lc-name { font-family: var(--gothic); font-size: 0.95rem; font-weight: 800; letter-spacing: 0.06em; }
+.lc-sub { display: block; font-family: var(--roman); font-size: 0.76rem; color: var(--ink-3); margin-top: 0.18rem; word-break: break-all; transition: color .18s; }
 
 .contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
 .contact-list .k { display: block; font-family: var(--gothic); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--ink-3); }
@@ -583,6 +628,7 @@ footer a { color: var(--ink-2); }
 <script>
   document.documentElement.classList.add('js');
   try {
+    if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme','dark');
     var l = localStorage.getItem('lang');
     document.documentElement.setAttribute('data-lang', l || 'ja');
     document.documentElement.setAttribute('lang', l === 'en' ? 'en' : (l === 'zh' ? 'zh-Hant' : 'ja'));
@@ -616,6 +662,7 @@ footer a { color: var(--ink-2); }
       <button class="lang" id="b-ja" type="button" aria-pressed="true">日本語</button>
       <button class="lang" id="b-en" type="button" aria-pressed="false">EN</button>
       <button class="lang" id="b-zh" type="button" aria-pressed="false">中文</button>
+      <button class="lang theme-btn" id="b-theme" type="button" aria-label="夜間表示に切り替える" title="夜間表示に切り替える">◐</button>
     </div>
   </div>
 </div>
@@ -1279,6 +1326,7 @@ footer a { color: var(--ink-2); }
     root.setAttribute('lang', l === 'en' ? 'en' : (l === 'zh' ? 'zh-Hant' : 'ja'));
     Object.keys(btns).forEach(function (k) { btns[k].setAttribute('aria-pressed', String(k === l)); });
     try { localStorage.setItem('lang', l); } catch (e) {}
+    if (themeBtn) paintThemeBtn();
   }
   Object.keys(btns).forEach(function (k) {
     btns[k].addEventListener('click', function () { setLang(k); });
@@ -1286,6 +1334,30 @@ footer a { color: var(--ink-2); }
   var saved = 'ja';
   try { saved = localStorage.getItem('lang') || 'ja'; } catch (e) {}
   setLang(saved);
+
+  /* ---- 昼夜の切り替え ---- */
+  var themeBtn = document.getElementById('b-theme');
+  var LABEL = {
+    ja: { toDark: '夜間表示に切り替える', toLight: '昼間表示に切り替える' },
+    en: { toDark: 'Switch to night mode',  toLight: 'Switch to day mode' },
+    zh: { toDark: '切換至夜間顯示',        toLight: '切換至日間顯示' }
+  };
+  function paintThemeBtn() {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    var l = root.getAttribute('data-lang') || 'ja';
+    var t = (LABEL[l] || LABEL.ja)[dark ? 'toLight' : 'toDark'];
+    themeBtn.textContent = dark ? '◑' : '◐';
+    themeBtn.setAttribute('aria-label', t);
+    themeBtn.setAttribute('title', t);
+  }
+  themeBtn.addEventListener('click', function () {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    if (dark) root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+    paintThemeBtn();
+  });
+  paintThemeBtn();
 
   /* ---- 出現（JS無効でも本文は見える設計）---- */
   var rises = Array.prototype.slice.call(document.querySelectorAll('.rise'));
