@@ -12,7 +12,7 @@
 <style>
 /* ============================================================
    平井 新 — 個人サイト
-   配色 : 古地図の紙色 × 墨 × WASEDA RED (#8E1729)
+   配色 : 古地図の紙色 × 墨 × 深紅 (#B3121E)
    赤はベタ塗りではなく「縁取り」に限定し、可読性を保つ
    ============================================================ */
 :root {
@@ -22,10 +22,10 @@
   --ink:      #15120D;
   --ink-2:    #453D31;
   --ink-3:    #6D6353;
-  --red:      #78101F;
-  --red-ink:  #620C18;
+  --red:      #B3121E;
+  --red-ink:  #94101A;
   --plate:    #14110D;
-  --hair:     rgba(120, 16, 31, 0.46);
+  --hair:     rgba(179, 18, 30, 0.50);
   --shade:    rgba(21, 18, 13, 0.055);
 
   --mincho: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", "YuMincho",
@@ -103,19 +103,18 @@ span.ja { display: inline; }
   padding: 0.6rem 0;
 }
 .brand {
-  font-family: var(--mincho);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-family: var(--gothic);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   color: var(--ink);
   text-decoration: none;
-  background: var(--plate);
-  color: var(--paper-2);
-  padding: 0.2rem 0.7rem 0.28rem;
+  padding: 0.2rem 0.1rem 0.24rem;
   flex: 0 0 auto;
-  box-shadow: 3px 3px 0 var(--red);
+  transition: color .18s;
 }
-:root[data-lang="en"] .brand, :root[data-lang="zh"] .brand { letter-spacing: 0.06em; }
+.brand:hover { color: var(--red-ink); }
+:root[data-lang="en"] .brand { letter-spacing: 0.12em; }
 .brand:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
 .tabs-nav { flex: 1 1 auto; min-width: 0; }
@@ -234,10 +233,10 @@ span.ja { display: inline; }
   width: 100%; height: 100%;
   object-fit: cover; object-position: 50% 28%;
   display: block;
-  filter: grayscale(0.55) contrast(1.06);
+  filter: saturate(1.12) contrast(1.04);
   transition: filter .6s ease;
 }
-.portrait:hover img { filter: grayscale(0.1) contrast(1.02); }
+.portrait:hover img { filter: saturate(1.22) contrast(1.06); }
 
 .name { margin: 0; font-size: 1rem; line-height: 1; }
 
@@ -262,21 +261,29 @@ span.ja { display: inline; }
   line-height: 1;
   letter-spacing: 0;
 }
-.cell.is-red { background: var(--red); }
+.cell.is-red { background: var(--red); color: var(--plate); }
 
-.name-en-plate {
+.name-en-logo {
   display: none;
-  background: var(--plate);
-  padding: 0.42rem 1.05rem 0.58rem;
-  box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red);
-  font-family: var(--roman);
-  font-weight: 600;
-  font-size: clamp(2.1rem, 6vw, 3.9rem);
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  color: #F5F0E3;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: clamp(1.4rem, 4vw, 2.6rem);
 }
-:root[data-lang="en"] .name-en-plate { display: inline-block; }
+:root[data-lang="en"] .name-en-logo { display: inline-flex; }
+.name-en-logo .row {
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px;
+  box-shadow: 0 0 0 2px var(--plate);
+}
+.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate); }
+.name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: -0.13em; box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
+.name-en-logo .cell {
+  font-family: var(--gothic);
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 0;
+}
 .name-roman {
   margin: 0.85rem 0 0;
   font-family: var(--roman);
@@ -327,7 +334,12 @@ span.ja { display: inline; }
 @media (max-width: 54rem) {
   .namecard { gap: 1rem; }
   .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
-  .name-en-plate { box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
+  .name-en-logo { font-size: clamp(1.1rem, 3.4vw, 2.2rem); }
+  .name-en-logo .row { gap: 4px; padding: 4px; }
+  .name-en-logo .row-2 {
+    margin-left: calc(1.6 * (1.30em + 4px));
+    box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red);
+  }
   .portrait { box-shadow: 0 0 0 1.5px var(--plate), 4px 4px 0 var(--red); }
 }
 
@@ -608,7 +620,7 @@ footer a { color: var(--ink-2); }
       </div>
       <div>
         <p class="eyebrow">Tokai University</p>
-        <h1 class="name"><span class="namelogo" aria-label="平井 新"><span class="cell" aria-hidden="true">平</span><span class="cell is-red" aria-hidden="true">井</span><span class="cell" aria-hidden="true">新</span></span><span class="name-en-plate">Arata Hirai</span></h1>
+        <h1 class="name"><span class="namelogo" aria-label="平井 新"><span class="cell" aria-hidden="true">平</span><span class="cell is-red" aria-hidden="true">井</span><span class="cell" aria-hidden="true">新</span></span><span class="name-en-logo" aria-label="Arata Hirai"><span class="row row-1" aria-hidden="true"><span class="cell">A</span><span class="cell is-red">R</span><span class="cell">A</span><span class="cell">T</span><span class="cell">A</span></span><span class="row row-2" aria-hidden="true"><span class="cell">H</span><span class="cell">I</span><span class="cell">R</span><span class="cell">A</span><span class="cell">I</span></span></span></h1>
         <p class="name-roman"><span class="ja">Arata Hirai, Ph.D.</span><span class="en">平井 新</span><span class="zh">Arata Hirai, Ph.D.</span></p>
       </div>
     </div>
@@ -651,7 +663,7 @@ footer a { color: var(--ink-2); }
       </div>
       <div class="news-item">
         <div class="news-date">2026<span class="ja">予定</span><span class="zh">預定</span></div>
-        <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善書店）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span><span class="zh">為日本台灣學會編《台灣文化事典》撰寫「轉型正義．歷史和解」等三個詞條。</span></div>
+        <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善出版）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span><span class="zh">為日本台灣學會編《台灣文化事典》撰寫「轉型正義．歷史和解」等三個詞條。</span></div>
       </div>
       <div class="news-item">
         <div class="news-date">2025.12</div>
@@ -746,10 +758,6 @@ footer a { color: var(--ink-2); }
         <div class="year">2018.10–2020.5</div>
         <div class="body"><span class="ja">研究助手　早稲田大学 地域・地域間研究機構（台湾研究所）</span><span class="en">Research Associate — Institute for Regional and Inter-Regional Studies (Taiwan Research Institute), Waseda University</span><span class="zh">研究助理　早稻田大學 地域．地域間研究機構（台灣研究所）</span></div>
       </div>
-      <div class="entry">
-        <div class="year">2013.4–2018.9</div>
-        <div class="body"><span class="ja">リサーチアシスタント　早稲田大学 アジア研究機構 台湾研究所</span><span class="en">Research Assistant — Taiwan Research Institute, Organization for Asian Studies, Waseda University</span><span class="zh">研究助理　早稻田大學 亞洲研究機構 台灣研究所</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -760,7 +768,7 @@ footer a { color: var(--ink-2); }
     <div class="entries rise">
       <div class="entry">
         <div class="year">2026<span class="ja">予定</span><span class="zh">預定</span></div>
-        <div class="body"><span class="tags"><span class="tag t-forth key"></span></span>（分担執筆）日本台湾学会編『台湾文化事典』「移行期正義・歴史和解」「選挙」「台湾政治のデモクラシー」<span class="venue">　丸善書店</span><span class="n-jp"></span></div>
+        <div class="body"><span class="tags"><span class="tag t-forth key"></span></span>（分担執筆）日本台湾学会編『台湾文化事典』「移行期正義・歴史和解」「選挙」「台湾政治のデモクラシー」<span class="venue">　丸善出版</span><span class="n-jp"></span></div>
       </div>
       <div class="entry">
         <div class="year">2025.2</div>
@@ -1021,7 +1029,7 @@ footer a { color: var(--ink-2); }
         </div>
         <div class="entry">
           <div class="year">2010–2021</div>
-          <div class="body"><span class="ja">早稲田大学 グローバルエデュケーションセンター・社会科学部「台湾を知る」「中国総合講座」「台湾政治研究」「地域研究としての台湾」（院）「Introduction to Taiwanese History」ほか</span><span class="en">Waseda University, Global Education Center and School of Social Sciences — "Understanding Taiwan," "Introduction to Taiwanese History," "Taiwanese Politics," and others</span><span class="zh">早稻田大學 全球教育中心．社會科學部「認識台灣」「中國綜合講座」「台灣政治研究」「作為區域研究的台灣」（研究所）「Introduction to Taiwanese History」等</span></div>
+          <div class="body"><span class="ja">早稲田大学 社会科学部「中国語初級／基礎」・グローバルエデュケーションセンター「台湾政治研究」「地域研究としての台湾」（院）「Introduction to Taiwanese History」ほか</span><span class="en">Waseda University — School of Social Sciences (Chinese, elementary and basic); Global Education Center ("Taiwanese Politics," "Taiwan as Area Studies" [graduate], "Introduction to Taiwanese History," and others)</span><span class="zh">早稻田大學 社會科學部「初級／基礎中文」．全球教育中心「台灣政治研究」「作為區域研究的台灣」（研究所）「Introduction to Taiwanese History」等</span></div>
         </div>
       </div>
     </div>
