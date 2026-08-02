@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>平井 新 | Arata Hirai</title>
+<meta name="description" content="平井新（東海大学政治経済学部政治学科 専任講師）— 移行期正義・歴史和解、現代台湾政治、比較政治学。研究業績・研究プロジェクト・教育歴。">
+<meta property="og:title" content="平井 新 | Arata Hirai">
+<meta property="og:description" content="移行期正義・歴史和解、現代台湾政治、比較政治学。東海大学政治経済学部政治学科 専任講師。">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23131E27'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%23A63D2C'/%3E%3C/svg%3E">
+<style>
+/* ============ tokens ============ */
+:root {
+  --paper:   #E9EDEE;
+  --paper-2: #F4F7F7;
+  --paper-3: #DBE2E4;
+  --ink:     #131E27;
+  --ink-2:   #3C4E5A;
+  --ink-3:   #6B7A84;
+  --seal:    #A63D2C;
+  --tide:    #2C6A64;
+  --contour: rgba(19, 30, 39, 0.055);
+  --shade:   rgba(19, 30, 39, 0.05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:   #0C1218;
+    --paper-2: #131C23;
+    --paper-3: #1D272F;
+    --ink:     #DDE4E7;
+    --ink-2:   #A4B2BA;
+    --ink-3:   #72838C;
+    --seal:    #E2806B;
+    --tide:    #74BAB1;
+    --contour: rgba(221, 228, 231, 0.05);
+    --shade:   rgba(221, 228, 231, 0.045);
+  }
+}
+:root[data-theme="dark"] {
+  --paper:   #0C1218;
+  --paper-2: #131C23;
+  --paper-3: #1D272F;
+  --ink:     #DDE4E7;
+  --ink-2:   #A4B2BA;
+  --ink-3:   #72838C;
+  --seal:    #E2806B;
+  --tide:    #74BAB1;
+  --contour: rgba(221, 228, 231, 0.05);
+  --shade:   rgba(221, 228, 231, 0.045);
+}
+:root[data-theme="light"] {
+  --paper:   #E9EDEE;
+  --paper-2: #F4F7F7;
+  --paper-3: #DBE2E4;
+  --ink:     #131E27;
+  --ink-2:   #3C4E5A;
+  --ink-3:   #6B7A84;
+  --seal:    #A63D2C;
+  --tide:    #2C6A64;
+  --contour: rgba(19, 30, 39, 0.055);
+  --shade:   rgba(19, 30, 39, 0.05);
+}
+
+:root {
+  --mincho: "Hiragino Mincho ProN", "HiraMinProN-W3", "Yu Mincho", "YuMincho",
+            "Noto Serif JP", "Songti SC", serif;
+  --roman:  "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text",
+            "Book Antiqua", Georgia, serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+            "Helvetica Neue", Arial, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--roman), var(--mincho);
+  font-size: 17px;
+  line-height: 1.85;
+  font-feature-settings: "palt" 1;
+  overflow-x: hidden;
+}
+
+/* ============ language ============ */
+.en { display: none; }
+:root[data-lang="en"] .en { display: revert; }
+:root[data-lang="en"] .ja { display: none; }
+span.en, span.ja { display: none; }
+span.ja { display: inline; }
+:root[data-lang="en"] span.en { display: inline; }
+:root[data-lang="en"] span.ja { display: none; }
+
+/* ============ shell ============ */
+.wrap { max-width: 74rem; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 4.5rem); }
+
+#contour {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.layer { position: relative; z-index: 1; }
+
+/* ============ chrome (lang + theme) ============ */
+.chrome {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  padding: clamp(0.75rem, 2vw, 1.4rem) clamp(1.25rem, 5vw, 4.5rem);
+  font-family: var(--gothic);
+  pointer-events: none;
+}
+.chrome > * { pointer-events: auto; }
+.btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink-3);
+  font: inherit;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: color .2s;
+}
+.btn:hover { color: var(--ink); }
+.btn[aria-pressed="true"] { color: var(--seal); }
+.btn:focus-visible { outline: 2px solid var(--tide); outline-offset: 2px; }
+
+/* ============ side nav ============ */
+.sidenav {
+  position: fixed;
+  right: clamp(0.9rem, 2vw, 1.8rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: flex-end;
+}
+@media (min-width: 68rem) { .sidenav { display: flex; } }
+.sidenav a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: var(--ink-3);
+  font-family: var(--gothic);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .25s, transform .25s, color .25s;
+}
+.sidenav a .dot {
+  width: 5px; height: 5px;
+  background: var(--ink-3);
+  flex: 0 0 auto;
+  transition: background .25s, transform .25s;
+}
+.sidenav:hover a { opacity: 1; transform: none; }
+.sidenav a.on { opacity: 1; transform: none; color: var(--ink); }
+.sidenav a.on .dot { background: var(--seal); transform: scale(1.5); }
+.sidenav a:focus-visible { opacity: 1; outline: 2px solid var(--tide); outline-offset: 3px; }
+
+/* ============ hero ============ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 14vh, 9rem) 0 clamp(3rem, 8vh, 6rem);
+}
+.hero > .wrap { width: 100%; }
+.hero-inner { width: 100%; }
+.namecard {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3.2vw, 2.6rem);
+}
+@media (max-width: 54rem) {
+  .hero { min-height: 0; padding-top: clamp(5rem, 12vh, 7rem); }
+  .namecard { gap: 1.1rem; }
+}
+
+.eyebrow {
+  font-family: var(--gothic);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tide);
+  margin: 0 0 1.4rem;
+}
+.name {
+  font-family: var(--mincho);
+  font-size: clamp(3.1rem, 9vw, 5.6rem);
+  line-height: 1.02;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  margin: 0;
+  text-wrap: balance;
+}
+:root[data-lang="en"] .name { font-family: var(--roman); letter-spacing: 0.005em; }
+.name-sub {
+  font-family: var(--roman);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 1.1rem 0 0;
+  font-weight: 400;
+}
+:root[data-lang="en"] .name-sub {
+  font-family: var(--mincho);
+  letter-spacing: 0.34em;
+  text-transform: none;
+}
+.role {
+  margin: 2rem 0 0;
+  font-family: var(--gothic);
+  font-size: 0.92rem;
+  line-height: 2;
+  color: var(--ink-2);
+}
+.role strong { font-weight: 600; color: var(--ink); }
+
+.lede {
+  margin: clamp(1.8rem, 4vw, 2.6rem) 0 0;
+  max-width: 34rem;
+  font-size: 1rem;
+  color: var(--ink-2);
+}
+.lede p { margin: 0 0 1em; }
+.lede p:last-child { margin: 0; }
+
+/* portrait */
+.portrait-frame {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(6.2rem, 15vw, 11.5rem);
+  aspect-ratio: 1 / 1.14;
+  overflow: hidden;
+  background: var(--paper-3);
+}
+.portrait-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  display: block;
+  filter: grayscale(0.22) contrast(1.03);
+  transition: filter .6s ease;
+}
+.portrait-frame:hover img { filter: none; }
+.portrait-mark {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 1.15rem; height: 1.15rem;
+  background: var(--seal);
+}
+.vert {
+  writing-mode: vertical-rl;
+  font-family: var(--mincho);
+  font-size: 0.8rem;
+  letter-spacing: 0.46em;
+  color: var(--seal);
+  white-space: nowrap;
+  align-self: center;
+  margin-left: clamp(1.25rem, 3vw, 2.75rem);
+  display: none;
+}
+@media (min-width: 62rem) { .vert { display: block; } }
+
+.quicklinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: clamp(1.8rem, 4vw, 2.4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.quicklinks a {
+  display: inline-block;
+  font-family: var(--gothic);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.85rem;
+  background: var(--paper-2);
+  color: var(--ink-2);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .2s, color .2s;
+}
+.quicklinks a:hover { background: var(--seal); color: var(--paper-2); }
+.quicklinks a:focus-visible { outline: 2px solid var(--tide); outline-offset: 2px; }
+
+/* ============ sections ============ */
+section { padding: clamp(3.2rem, 8vw, 5.5rem) 0; }
+.band { background: var(--paper-2); }
+
+h2 {
+  font-family: var(--mincho);
+  font-size: clamp(1.45rem, 3.4vw, 1.95rem);
+  font-weight: 400;
+  letter-spacing: 0.13em;
+  margin: 0 0 2.4rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+}
+:root[data-lang="en"] h2 { font-family: var(--roman); letter-spacing: 0.02em; }
+h2::before {
+  content: "";
+  width: 0.52rem; height: 0.52rem;
+  background: var(--seal);
+  flex: 0 0 auto;
+  transform: translateY(-0.18em);
+}
+h2 .romaji {
+  font-family: var(--roman);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+:root[data-lang="en"] h2 .romaji { display: none; }
+
+h3 {
+  font-family: var(--gothic);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tide);
+  margin: 2.8rem 0 1.2rem;
+}
+h3:first-of-type { margin-top: 0; }
+
+/* ============ news ============ */
+.news { display: flex; flex-direction: column; gap: 0.4rem; max-width: 54rem; }
+.news-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0 1.4rem;
+  align-items: baseline;
+  padding: 0.75rem 0.9rem 0.75rem 0;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.news-item:hover { background: var(--shade); }
+.news-date {
+  font-family: var(--roman);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.84rem;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.news-body { font-size: 0.96rem; line-height: 1.75; }
+@media (max-width: 40rem) {
+  .news-item { grid-template-columns: 1fr; gap: 0.1rem; padding-left: 0; }
+}
+
+/* ============ entries ============ */
+.entries { display: flex; flex-direction: column; gap: 0.3rem; }
+.entry {
+  display: grid;
+  grid-template-columns: 7.25rem 1fr;
+  gap: 0 1.5rem;
+  align-items: baseline;
+  padding: 0.62rem 0.9rem 0.62rem 0;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.entry:hover { background: var(--shade); }
+.year {
+  font-family: var(--roman);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.87rem;
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.body { max-width: 47rem; font-size: 0.96rem; line-height: 1.8; }
+.body cite { font-style: normal; color: var(--ink-2); }
+.body em { font-style: italic; }
+.venue { color: var(--ink-2); }
+@media (max-width: 40rem) {
+  .entry { grid-template-columns: 1fr; gap: 0.12rem; padding-left: 0; }
+  .year { font-size: 0.78rem; letter-spacing: 0.1em; }
+}
+
+/* ============ tags ============ */
+.tags { display: inline-flex; flex-wrap: wrap; gap: 0.32rem; margin-right: 0.45rem; vertical-align: 0.06em; }
+.tag {
+  font-family: var(--gothic);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  line-height: 1.65;
+  padding: 0.04rem 0.42rem;
+  border-radius: 2px;
+  background: var(--paper-3);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.tag.key  { background: var(--seal); color: var(--paper-2); }
+.tag.tide { background: var(--tide); color: var(--paper-2); }
+:root[data-theme="dark"] .tag.key, :root[data-theme="dark"] .tag.tide { color: #0C1218; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.key,
+  :root:not([data-theme="light"]) .tag.tide { color: #0C1218; }
+}
+.t-peer::after    { content: "査読有"; }
+.t-invited::after { content: "招待有"; }
+.t-co::after      { content: "共著"; }
+.t-corr::after    { content: "責任著者"; }
+.t-trans::after   { content: "翻訳"; }
+.t-forth::after   { content: "刊行予定"; }
+.t-intl::after    { content: "国際学会"; }
+.t-dom::after     { content: "国内学会"; }
+.t-scopus::after  { content: "SCOPUS"; }
+.t-cssci::after   { content: "CSSCI"; }
+:root[data-lang="en"] .t-peer::after    { content: "Peer-reviewed"; }
+:root[data-lang="en"] .t-invited::after { content: "Invited"; }
+:root[data-lang="en"] .t-co::after      { content: "Co-authored"; }
+:root[data-lang="en"] .t-corr::after    { content: "Corresponding author"; }
+:root[data-lang="en"] .t-trans::after   { content: "Translation"; }
+:root[data-lang="en"] .t-forth::after   { content: "Forthcoming"; }
+:root[data-lang="en"] .t-intl::after    { content: "International"; }
+:root[data-lang="en"] .t-dom::after     { content: "Domestic"; }
+
+.lang-note { color: var(--ink-3); font-size: 0.85em; }
+
+/* doi link */
+.doi {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-family: var(--gothic);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  padding: 0.04rem 0.45rem;
+  border-radius: 2px;
+  background: transparent;
+  color: var(--tide);
+  text-decoration: none;
+  box-shadow: inset 0 0 0 1px currentColor;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.doi:hover { background: var(--tide); color: var(--paper-2); }
+:root[data-theme="dark"] .doi:hover { color: #0C1218; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .doi:hover { color: #0C1218; }
+}
+.doi:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+
+/* ============ misc blocks ============ */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); gap: clamp(1.75rem, 4vw, 3.2rem); }
+.field-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.field-list li { font-size: 0.96rem; }
+.field-list .k {
+  display: block;
+  font-family: var(--gothic);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.08rem;
+}
+.fields { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 2.6rem; padding: 0; list-style: none; }
+.fields li {
+  font-family: var(--mincho);
+  font-size: 0.94rem;
+  letter-spacing: 0.06em;
+  padding: 0.32rem 0.95rem;
+  background: var(--paper-3);
+  border-radius: 2px;
+}
+:root[data-lang="en"] .fields li { font-family: var(--roman); }
+
+/* ============ profile links ============ */
+.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.6rem; }
+.link-card {
+  display: block;
+  padding: 1.05rem 1.15rem;
+  background: var(--paper-3);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .2s, transform .2s;
+}
+.link-card:hover { background: var(--seal); color: var(--paper-2); transform: translateY(-2px); }
+.link-card:hover .lc-sub { color: var(--paper-2); opacity: .8; }
+.link-card:focus-visible { outline: 2px solid var(--tide); outline-offset: 3px; }
+.lc-name { font-family: var(--gothic); font-size: 0.82rem; letter-spacing: 0.1em; font-weight: 600; }
+.lc-sub {
+  display: block;
+  font-family: var(--roman);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin-top: 0.2rem;
+  word-break: break-all;
+  transition: color .2s;
+}
+
+.contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+.contact-list .k {
+  display: block;
+  font-family: var(--gothic);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.contact-list a { color: var(--tide); text-decoration: none; box-shadow: inset 0 -1px 0 transparent; transition: box-shadow .2s; }
+.contact-list a:hover { box-shadow: inset 0 -1px 0 currentColor; }
+.contact-list a:focus-visible { outline: 2px solid var(--seal); outline-offset: 3px; }
+.mono { font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
+
+footer {
+  background: var(--paper);
+  padding: clamp(2.2rem, 5vw, 3.2rem) 0;
+  font-family: var(--gothic);
+  font-size: 0.74rem;
+  color: var(--ink-3);
+  letter-spacing: 0.08em;
+}
+
+/* ============ reveal ============
+   Content is visible by default. The hidden start state applies only when
+   scripting is available (html.js), so the page never depends on JS to be read. */
+.js .rise { opacity: 0; transform: translateY(14px); transition: opacity .7s cubic-bezier(.22,.7,.3,1), transform .7s cubic-bezier(.22,.7,.3,1); }
+.js .rise.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .rise { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .portrait-frame img { transition: none; }
+}
+</style>
+</head>
+<body>
+<script>
+  document.documentElement.classList.add('js');
+  try {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+    var l = localStorage.getItem('lang');
+    document.documentElement.setAttribute('data-lang', l || 'ja');
+  } catch (e) { document.documentElement.setAttribute('data-lang', 'ja'); }
+</script>
+
+<canvas id="contour" aria-hidden="true"></canvas>
+
+<div class="chrome">
+  <button class="btn" id="btn-ja" type="button" aria-pressed="true">日本語</button>
+  <button class="btn" id="btn-en" type="button" aria-pressed="false">English</button>
+  <button class="btn" id="btn-theme" type="button" aria-label="配色を切り替える">◐</button>
+</div>
+
+<nav class="sidenav" aria-label="セクション">
+  <a href="#news"><span class="ja">お知らせ</span><span class="en">News</span><span class="dot"></span></a>
+  <a href="#about"><span class="ja">研究領域</span><span class="en">Research</span><span class="dot"></span></a>
+  <a href="#career"><span class="ja">職歴</span><span class="en">Career</span><span class="dot"></span></a>
+  <a href="#books"><span class="ja">著書</span><span class="en">Books</span><span class="dot"></span></a>
+  <a href="#articles"><span class="ja">論文</span><span class="en">Articles</span><span class="dot"></span></a>
+  <a href="#grants"><span class="ja">助成</span><span class="en">Grants</span><span class="dot"></span></a>
+  <a href="#talks"><span class="ja">学会報告</span><span class="en">Talks</span><span class="dot"></span></a>
+  <a href="#teaching"><span class="ja">教育</span><span class="en">Teaching</span><span class="dot"></span></a>
+  <a href="#profiles"><span class="ja">連絡先</span><span class="en">Contact</span><span class="dot"></span></a>
+</nav>
+
+<div class="layer">
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="namecard rise">
+        <div class="portrait-frame">
+          <img src="portrait.jpg" alt="平井 新" width="560" height="560">
+          <span class="portrait-mark" aria-hidden="true"></span>
+        </div>
+        <div class="namecard-text">
+          <p class="eyebrow">Tokai University</p>
+          <h1 class="name"><span class="ja">平井 新</span><span class="en">Arata Hirai</span></h1>
+          <p class="name-sub"><span class="ja">Arata Hirai, Ph.D.</span><span class="en">平井 新</span></p>
+        </div>
+        <div class="vert" aria-hidden="true">移行期正義・歴史和解</div>
+      </div>
+      <div>
+        <p class="role rise">
+          <span class="ja"><strong>東海大学 政治経済学部 政治学科 専任講師</strong><br>博士（政治学・早稲田大学）</span>
+          <span class="en"><strong>Junior Associate Professor, School of Political Science and Economics, Tokai University</strong><br>Ph.D. in Political Science, Waseda University</span>
+        </p>
+        <div class="lede rise">
+          <p class="ja">移行期正義（transitional justice）と歴史和解を軸に、現代台湾政治と東アジアの国際関係を研究しています。権威主義体制下の国家暴力をめぐる過去の清算が、台湾という「例外状態」の中でどのように重層的に展開してきたのかを、法制度と個人の生の両面から追ってきました。</p>
+          <p class="ja">近年は関心を島嶼へ広げ、沖縄・奄美・八重山・与那国といった〈境界の島々〉における記憶の政治と安全保障の緊張を、「台湾有事」論の再検討とあわせて論じています。</p>
+          <p class="en">My research centres on transitional justice and historical reconciliation in contemporary Taiwan and East Asia. I have traced how the reckoning with state violence under authoritarian rule unfolded in layers within Taiwan's "state of exception" — reading it through both legal institutions and individual lives.</p>
+          <p class="en">More recently my work has moved to the islands: the politics of memory and the tensions of security in the border islands of Okinawa, Amami, Yaeyama and Yonaguni, alongside a re-examination of the "Taiwan contingency" debate.</p>
+        </div>
+        <ul class="quicklinks rise">
+          <li><a href="https://researchmap.jp/a.h756" target="_blank" rel="noopener">researchmap</a></li>
+          <li><a href="https://nrid.nii.ac.jp/nrid/1000090837296" target="_blank" rel="noopener">KAKEN</a></li>
+          <li><a href="https://orcid.org/0009-0003-5499-4696" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="mailto:hirai.arata.k@tokai.ac.jp">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="news" class="band">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">お知らせ</span><span class="en">News</span><span class="romaji">News</span></h2>
+    <div class="news rise">
+      <div class="news-item">
+        <div class="news-date">2026.3</div>
+        <div class="news-body"><span class="ja">共著論文が <cite>The Sociological Review</cite> 74(2) に掲載されました。</span><span class="en">Co-authored article published in <cite>The Sociological Review</cite> 74(2).</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026<span class="ja">予定</span></div>
+        <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善書店）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.12</div>
+        <div class="news-body"><span class="ja">与那国島を事例とした責任著者論文が <cite>Journal of Borderlands Studies</cite> に掲載されました。</span><span class="en">Article on Yonaguni Island published in <cite>Journal of Borderlands Studies</cite> (corresponding author).</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.7</div>
+        <div class="news-body"><span class="ja">国際和解学会（IARS）第6回年次大会（ソウル）で、沖縄・奄美・台湾の記憶と和解について報告しました。</span><span class="en">Presented on memory and reconciliation in Okinawa, Amami and Taiwan at the 6th IARS Annual Conference, Seoul.</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.7</div>
+        <div class="news-body"><span class="ja">『中国研究月報』に渡辺将人『台湾のデモクラシー』の書評を寄稿しました。</span><span class="en">Book review published in <cite>Monthly Journal of Chinese Affairs</cite>.</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025.6</div>
+        <div class="news-body"><span class="ja">欧州台湾学会（EATS）第22回大会（チェコ）で報告しました。</span><span class="en">Presented at the 22nd Annual Conference of the European Association for Taiwan Studies, Czech Republic.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">研究領域</span><span class="en">Research Fields</span><span class="romaji">Research Fields</span></h2>
+    <ul class="fields rise">
+      <li><span class="ja">移行期正義・歴史和解</span><span class="en">Transitional Justice &amp; Historical Reconciliation</span></li>
+      <li><span class="ja">現代台湾政治</span><span class="en">Contemporary Taiwanese Politics</span></li>
+      <li><span class="ja">比較政治学</span><span class="en">Comparative Politics</span></li>
+      <li><span class="ja">比較地域研究</span><span class="en">Comparative Regional Studies</span></li>
+      <li><span class="ja">東アジア近現代史</span><span class="en">Modern East Asian History</span></li>
+      <li><span class="ja">記憶の政治・国境離島</span><span class="en">Politics of Memory &amp; Border Islands</span></li>
+    </ul>
+    <div class="cols rise">
+      <div>
+        <h3><span class="ja">学位</span><span class="en">Degrees</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2020.2</span><span class="ja">博士（政治学）早稲田大学</span><span class="en">Ph.D. in Political Science, Waseda University</span></li>
+          <li><span class="k">2012.9</span><span class="ja">修士（政治学）早稲田大学大学院政治学研究科</span><span class="en">M.A., Graduate School of Political Science, Waseda University</span></li>
+        </ul>
+        <h3><span class="ja">学位論文</span><span class="en">Theses</span></h3>
+        <ul class="field-list">
+          <li><span class="k"><span class="ja">博士論文</span><span class="en">Doctoral</span></span><span class="ja">「現代台湾における重層的な移行期正義の展開」2020年</span><span class="en">"The Development of Multilayered Transitional Justice in Contemporary Taiwan," 2020</span></li>
+          <li><span class="k"><span class="ja">修士論文</span><span class="en">Master's</span></span><span class="ja">「移行期正義と現代台湾の経験」2012年</span><span class="en">"Transitional Justice and the Taiwanese Experience," 2012</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="ja">学歴</span><span class="en">Education</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2014–2021</span><span class="ja">北京大学 国際関係学院 博士課程（ABD）</span><span class="en">Peking University, School of International Studies — Doctoral Program (ABD)</span></li>
+          <li><span class="k">2010–2020</span><span class="ja">早稲田大学大学院 政治学研究科 修士課程・博士後期課程</span><span class="en">Waseda University, Graduate School of Political Science — M.A. and Ph.D. Programs</span></li>
+          <li><span class="k">2009–2011</span><span class="ja">復旦大学 新聞学院（ダブルディグリー）学士</span><span class="en">Fudan University, School of Journalism (Double Degree) — B.A., Media Studies</span></li>
+          <li><span class="k">2006–2010</span><span class="ja">早稲田大学 法学部 学士</span><span class="en">Waseda University, School of Law — LL.B.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career" class="band">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">職歴</span><span class="en">Appointments</span><span class="romaji">Appointments</span></h2>
+    <div class="entries rise">
+      <div class="entry">
+        <div class="year">2026.4–</div>
+        <div class="body"><span class="ja"><strong>専任講師</strong>　東海大学 政治経済学部 政治学科</span><span class="en"><strong>Junior Associate Professor (with tenure)</strong> — School of Political Science and Economics, Tokai University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2023.4–2026.3</div>
+        <div class="body"><span class="ja"><strong>特任講師（テニュアトラック）</strong>　東海大学 政治経済学部 政治学科</span><span class="en"><strong>Junior Associate Professor (tenure-track)</strong> — School of Political Science and Economics, Tokai University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2021.4–</div>
+        <div class="body"><span class="ja">非常勤講師　法政大学 理工学部</span><span class="en">Adjunct Lecturer — Faculty of Science and Engineering, Hosei University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2022.4–2023.3</div>
+        <div class="body"><span class="ja">非常勤講師　神奈川大学 経営学部</span><span class="en">Adjunct Lecturer — Faculty of Business Administration, Kanagawa University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2021.9–2023.3</div>
+        <div class="body"><span class="ja">非常勤講師　帝京大学 外国語学部</span><span class="en">Adjunct Lecturer — Faculty of Foreign Languages, Teikyo University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2020.6–2023.3</div>
+        <div class="body"><span class="ja">次席研究員　早稲田大学 地域・地域間研究機構（台湾研究所）</span><span class="en">Junior Researcher — Institute for Regional and Inter-Regional Studies (Taiwan Research Institute), Waseda University</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2018.10–2020.5</div>
+        <div class="body"><span class="ja">助手　早稲田大学 地域・地域間研究機構（台湾研究所）</span><span class="en">Research Associate — Institute for Regional and Inter-Regional Studies (Taiwan Research Institute), Waseda University</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="books">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">著書</span><span class="en">Books</span><span class="romaji">Books</span></h2>
+    <div class="entries rise">
+      <div class="entry">
+        <div class="year">2026<span class="ja">予定</span></div>
+        <div class="body"><span class="tags"><span class="tag t-forth key"></span></span>（分担執筆）日本台湾学会編『台湾文化事典』「移行期正義・歴史和解」「選挙」「台湾政治のデモクラシー」<span class="venue">　丸善書店</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2025.2</div>
+        <div class="body">（分担執筆）春山明哲・松田康博他編『台湾の歴史大全』「移行期正義」pp.326–328<span class="venue">　藤原書店</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+      <div class="entry">
+        <div class="year">2021.9</div>
+        <div class="body"><span class="tags"><span class="tag t-co"></span></span>Lawrence Ka-Ki Ho, Jason Kwun-hong Chan, Garth den Heyer, Jen-shuo Hsu, Arata Hirai, <em>Policing the Police in Asia: Police Oversight in Japan, Hong Kong, and Taiwan</em><span class="venue">, SpringerBriefs in Criminology, Springer</span><a class="doi" href="https://doi.org/10.1007/978-3-030-82981-0" target="_blank" rel="noopener">DOI</a></div>
+      </div>
+      <div class="entry">
+        <div class="year">2020.3</div>
+        <div class="body">（分担執筆）若林正丈・家永真幸編『台湾研究入門』「移行期正義」pp.281–293<span class="venue">　東京大学出版会</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="articles" class="band">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">論文</span><span class="en">Articles</span><span class="romaji">Articles</span></h2>
+    <div class="entries rise">
+
+      <div class="entry">
+        <div class="year">2026.3</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span><span class="tag t-scopus tide"></span><span class="tag t-co"></span></span>Paul Jobin, Shigeto Sonoda, Arata Hirai, "A sociological approach to Japan's war frames and security threats," <cite>The Sociological Review</cite> 74(2), pp.375–397<span class="venue">, Sage</span><a class="doi" href="https://doi.org/10.1177/00380261261423731" target="_blank" rel="noopener">DOI</a></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2026<span class="ja">予定</span></div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span><span class="tag t-forth key"></span></span>平井新・ポール・ジョバン「「台湾有事」と南西諸島：日本の防衛政策転換と地域の対中危機認識」『〈国境離島〉としての対馬・八重山—境界の島々の歴史、文化、アイデンティティと政治的境界（仮）』<span class="venue">　勉誠出版</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2025.12</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span><span class="tag t-scopus tide"></span><span class="tag t-corr"></span></span>Kishou Okamoto, Kana Shimamoto, Arata Hirai, "Balance of the Trade-off Between Accountability and National Security: A Case Study of Yonaguni Island, Okinawa, Japan," <cite>Journal of Borderlands Studies</cite>, pp.533–553<span class="venue">, Routledge</span><a class="doi" href="https://doi.org/10.1080/08865655.2025.2599158" target="_blank" rel="noopener">DOI</a></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2025.7</div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span></span>「書評：渡辺将人『台湾のデモクラシー　メディア、選挙、アメリカ』」<cite>『中国研究月報』</cite>79(7), pp.38–43<span class="venue">　中国研究所</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2025.3</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「2024年台湾総統・立法院選挙結果の分析—なぜ第三勢力・民衆党の支持が拡大し、失速したのか？」<cite>『Human Security』</cite>No.15, pp.3–25<span class="venue">　東海大学平和戦略国際研究所</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2024.12</div>
+        <div class="body"><span class="tags"><span class="tag t-trans"></span></span>呉介民「中国要因 vs. アメリカ要因—2024年台湾総統選挙の考察（後編）」<cite>『交流』</cite>No.1005, pp.7–11<span class="venue">　日本台湾交流協会</span><span class="en lang-note"> (translation into Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2024.11</div>
+        <div class="body"><span class="tags"><span class="tag t-trans"></span></span>呉介民「中国要因 vs. アメリカ要因—2024年台湾総統選挙の考察（前編）」<cite>『交流』</cite>No.1004, pp.1–10<span class="venue">　日本台湾交流協会</span><span class="en lang-note"> (translation into Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2024.9</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span><span class="tag t-scopus tide"></span></span>"Japanese Police Activities in a State of Emergency: Focusing on the Great East Japan Earthquake and the Covid-19 Pandemic," in <cite>Routledge International Handbook of Policing Crises and Emergencies</cite>, pp.43–58<span class="venue">, Routledge</span><a class="doi" href="https://doi.org/10.4324/9781003265214-4" target="_blank" rel="noopener">DOI</a></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2022.9</div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span></span>"The Fourth Taiwan Strait Crisis? Disputes on the 'One China' Issue Between Japan and China," <cite>SUNGKYUN CHINA INSIGHT</cite></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2022.3</div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span></span>「書評：陳儀深・薛化元編／二二八事件紀念基金会著『二二八事件の真相と移行期正義』」<cite>『中国21』</cite>56, pp.239–249<span class="venue">　愛知大学現代中国学会</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2021.8</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span><span class="tag t-scopus tide"></span><span class="tag t-co"></span></span>Lawrence Ka-ki Ho, Jason Kwun-Hong Chan, Ying-tung Chan, Garth den Heyer, Jen-Shuo Hsu, Arata Hirai, "Professionalism versus democracy? Historical and institutional analysis of police oversight mechanisms in three Asian jurisdictions," <cite>Crime, Law and Social Change</cite> 76, pp.1–25<span class="venue">, Springer</span><a class="doi" href="https://doi.org/10.1007/s10611-021-09981-y" target="_blank" rel="noopener">DOI</a></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2021.6</div>
+        <div class="body"><span class="tags"><span class="tag t-trans"></span></span>王業鼎「世論調査からみる台湾総統選挙の四半世紀（1996年—2020年）」<cite>『日本台湾学会報』</cite>23, pp.83–104<span class="en lang-note"> (translation into Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2021.3</div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span></span>「「辺境東アジア」—香港と台湾のリベラリズムとデモクラシーの現在」<cite>『ワセダアジアレビュー』</cite>23, pp.59–69<span class="venue">　早稲田大学地域・地域間研究機構</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2021.2</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span><span class="tag t-cssci tide"></span><span class="tag t-co"></span></span>金載勲・平井新「国际范式转移中的日本汽车产业—新冲击下的产业转型」<cite>《日本研究》</cite>179(4), pp.19–32<span class="venue">　遼寧大学</span><span class="en lang-note"> (in Chinese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2020.12</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「現代台湾における移行期正義の形成過程—蔡英文政権期の「転型正義」関連法規の制定と運用を中心に—」<cite>『中国研究論叢』</cite>20, pp.31–54<span class="venue">　霞山会</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2020.4</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「台灣轉型正義在世界脈絡下的普遍性與未來走向」<cite>《黨產研究》</cite>5(1)<span class="venue">　不當黨產處理委員會</span><span class="en lang-note"> (in Chinese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2019.12</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「台灣案例的特殊性—台灣的「例外狀態」與轉型正義」薛化元・若林正丈・川島真主編<cite>《自由、民主、人權與近代東亞論集》</cite>pp.225–242<span class="venue">　政治大学台湾史研究所</span><span class="en lang-note"> (in Chinese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2019.10</div>
+        <div class="body"><span class="tags"><span class="tag t-invited"></span></span>「書評　中村元哉著『中国、香港、台湾におけるリベラリズムの系譜』」<cite>『アジア研究』</cite>65(4), pp.40–45<span class="venue">　アジア政経学会</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2017.3</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「移行期正義概念の再検討」<cite>『次世代論集』</cite>2, pp.3–44<span class="venue">　早稲田大学地域・地域間研究機構</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2015.8</div>
+        <div class="body"><span class="tags"><span class="tag t-trans"></span></span>呉介民「「太陽花運動」への道—台湾市民社会の中国要因に対する抵抗」<cite>『日本台湾学会報』</cite>17, pp.1–37<span class="en lang-note"> (translation into Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2015.8</div>
+        <div class="body"><span class="tags"><span class="tag t-trans"></span></span>林宗弘「現実と想像上の台湾—両岸関係が中国経済、文化、政治に与える影響—」<cite>『日本台湾学会報』</cite>17, pp.38–69<span class="en lang-note"> (translation into Japanese)</span></div>
+      </div>
+
+      <div class="entry">
+        <div class="year">2014.3</div>
+        <div class="body"><span class="tags"><span class="tag t-peer key"></span></span>「移行期正義の越境—韓国、台湾のポストコロニアル期の過去の克服の取り組み—」<cite>『次世代アジア論集』</cite>7, pp.117–147<span class="venue">　早稲田大学地域・地域間研究機構</span><span class="en lang-note"> (in Japanese)</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="grants">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">研究助成・プロジェクト</span><span class="en">Grants &amp; Projects</span><span class="romaji">Grants &amp; Projects</span></h2>
+    <div class="rise">
+      <h3><span class="ja">研究代表者</span><span class="en">As Principal Investigator</span></h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="year">2023.4–2026.3</div>
+          <div class="body"><span class="ja">科学研究費助成事業 若手研究「戦後日台関係における市民社会の連帯—「台湾の政治犯を救う会」を中心に」</span><span class="en">JSPS KAKENHI, Grant-in-Aid for Early-Career Scientists — "Civil Society Solidarity in Postwar Japan–Taiwan Relations"</span><a class="doi" href="https://nrid.nii.ac.jp/nrid/1000090837296" target="_blank" rel="noopener">KAKEN</a></div>
+        </div>
+        <div class="entry">
+          <div class="year">2024</div>
+          <div class="body"><span class="ja">日本台湾交流協会 共同研究助成事業「2024年台湾総統選挙における米中要因—選挙区の現場から」</span><span class="en">Japan-Taiwan Exchange Association, Joint Research Grant — "US and China Factors in the 2024 Taiwanese Presidential Election"</span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2023</div>
+          <div class="body"><span class="ja">東海大学 研究スタートアップ支援「台湾海峡における「国境離島」の比較研究」</span><span class="en">Tokai University Research Start-up Grant — "A Comparative Study of Border Islands in the Taiwan Strait"</span></div>
+        </div>
+      </div>
+
+      <h3><span class="ja">参加プロジェクト</span><span class="en">Participating Projects</span></h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="year">2023–2029</div>
+          <div class="body"><span class="ja">科研 新学術領域研究「普遍的価値と集合的記憶を踏まえた国際和解学の探究」（研究代表者：浅野豊美・早稲田大学）<strong>研究分担者</strong></span><span class="en">"Exploring International Reconciliation Studies based on Universal Values and Collective Memory" (PI: Toyomi Asano, Waseda University) — <strong>Co-investigator</strong></span><a class="doi" href="https://memory.w.waseda.jp/member/368" target="_blank" rel="noopener"><span class="ja">メンバー紹介</span><span class="en">Profile</span></a></div>
+        </div>
+        <div class="entry">
+          <div class="year">2021</div>
+          <div class="body"><span class="ja">サントリー文化財団「東シナ海域における「国境離島」の比較研究」（研究代表者：柿沼亮介）<strong>共同研究者</strong></span><span class="en">Suntory Foundation — "A Comparative Study of Border Islands in the East China Sea" (PI: Ryosuke Kakinuma) — <strong>Collaborator</strong></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">—</div>
+          <div class="body">Hong Kong Policy Innovation and Co-ordination Office, Public Policy Research Funding Scheme — "Police Oversight: International Debates &amp; Exploration of An Appropriate Mechanism for Hong Kong" — <strong>Co-investigator</strong></div>
+        </div>
+        <div class="entry">
+          <div class="year">2017–2022</div>
+          <div class="body"><span class="ja">科研 新学術領域研究「和解学の創成—正義ある和解を求めて」（研究代表者：浅野豊美・早稲田大学）<strong>研究協力者</strong></span><span class="en">"Creating a Study of Reconciliation" (PI: Toyomi Asano, Waseda University) — <strong>Research collaborator</strong></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2015–2019</div>
+          <div class="body"><span class="ja">科研 基盤研究(A)「東アジアにおける歴史和解のための総合的研究」（研究代表者：梅森直之・早稲田大学）<strong>研究協力者</strong></span><span class="en">JSPS KAKENHI (A) — "Comprehensive Research for Historical Reconciliation in East Asia" (PI: Naoyuki Umemori, Waseda University) — <strong>Research collaborator</strong></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="talks" class="band">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">学会報告</span><span class="en">Conference Presentations</span><span class="romaji">Conference Presentations</span></h2>
+    <div class="entries rise">
+      <div class="entry"><div class="year">2025.7</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Decolonization and Identity in Island Territories: Politics of Memory and Reconciliation in Okinawa, Amami, and Taiwan," <span class="venue">6th International Association for Reconciliation Studies Annual Conference, Seoul</span></div></div>
+      <div class="entry"><div class="year">2025.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Japan's Indo-Pacific Grand Strategy and the 'Taiwan Contingency'," <span class="venue">22nd European Association for Taiwan Studies, Czech Republic</span></div></div>
+      <div class="entry"><div class="year">2025.3</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Voices from the Empire's Periphery: The Intersection of Japanese-Taiwanese Anarchism and Liberal Thought," <span class="venue">AAS Annual Conference, Columbus</span></div></div>
+      <div class="entry"><div class="year">2025.2</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>"Securitization and the Reframing of Postwar Japan," <span class="venue">Reframing War: Insights from Eastern Europe and East Asia, Academia Sinica, Taipei</span></div></div>
+      <div class="entry"><div class="year">2025.2</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「台湾における権威主義体制下の国家暴力と民主化（1979–1986）」</span><span class="en">"State Violence and Democratization under Authoritarian Rule in Taiwan (1979–1986)"</span><span class="venue">　<span class="ja">シンポジウム「アメリカの人権外交と東アジア」早稲田大学</span><span class="en">Symposium on US Human Rights Diplomacy and East Asia, Waseda University</span></span></div></div>
+      <div class="entry"><div class="year">2025.1</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Transcending Divides: Huang Shunxing's Impact on Taiwan's Political Transformation," <span class="venue">American Historical Association 138th Annual Meeting, New York</span></div></div>
+      <div class="entry"><div class="year">2024.8</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>"Tracing the Localization of Multilayered Transitional Justice of Taiwan," <span class="venue">Kavala International Summer School 2024, The American College of Thessaloniki</span></div></div>
+      <div class="entry"><div class="year">2024.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span></span>「黃順興的思想與行動」<span class="venue">　<span class="ja">第5回新しい近現代中国研究の学術交流会（中国語）東洋文庫</span><span class="en">5th Academic Exchange Meeting on New Modern Chinese Studies, Toyo Bunko (in Chinese)</span></span></div></div>
+      <div class="entry"><div class="year">2024.3</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Tracing the Localization of Multilayered Transitional Justice: A Case Study of Xu Zhao-Rong and Taiwanese Veterans in Modern Taiwan Society," <span class="venue">AAS Annual Conference, Seattle</span></div></div>
+      <div class="entry"><div class="year">2023.9</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span>"The Impact of the Ukrainian War on Taiwan," <span class="venue">Toyama University &amp; Tokai University Joint Seminar</span></div></div>
+      <div class="entry"><div class="year">2023.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"Transnational Memories of Grassroots Citizen Movements in East Asia: The Case of the Association to Save Taiwanese Political Prisoners," <span class="venue">AAS-in-Asia Annual Conference</span></div></div>
+      <div class="entry"><div class="year">2023.5</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「「台湾有事」論と八重山」</span><span class="en">"The 'Taiwan Contingency' Debate and Yaeyama"</span><span class="venue">　<span class="ja">サントリー学問の未来を拓く助成 研究成果報告会</span><span class="en">Suntory Foundation Research Report Meeting</span></span></div></div>
+      <div class="entry"><div class="year">2022.11</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>Arata Hirai &amp; Paul Jobin, "How Much 'Pro-Taiwan' Japanese Politicians Really Care for Taiwan?," <span class="venue">Taiwanese Sociological Association Annual Meeting / Institute of Sociology, Academia Sinica</span></div></div>
+      <div class="entry"><div class="year">2022.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>"'Multi-Layered Transitional Justice' in Contemporary Taiwan," <span class="venue">4th World Congress of Taiwan Studies, University of Washington</span></div></div>
+      <div class="entry"><div class="year">2022.5</div><div class="body"><span class="tags"><span class="tag t-dom"></span><span class="tag t-peer key"></span></span><span class="ja">「東アジアにおける草の根市民運動の連帯—「台湾の政治犯を救う会」を事例に」</span><span class="en">"Solidarity of Grassroots Movements in East Asia"</span><span class="venue">　<span class="ja">日本台湾学会 第24回学術大会</span><span class="en">24th Annual Conference, Japan Association for Taiwan Studies</span></span></div></div>
+      <div class="entry"><div class="year">2021.3</div><div class="body"><span class="tags"><span class="tag t-dom"></span><span class="tag t-invited"></span></span><span class="ja">「東アジア現代史から見た台湾・228事件」</span><span class="en">"The 228 Incident in Modern East Asian History"</span><span class="venue">　<span class="ja">『228事件の真相と移行期正義』刊行記念シンポジウム　愛知大学</span><span class="en">Book Launch Symposium, Aichi University</span></span></div></div>
+      <div class="entry"><div class="year">2021.2</div><div class="body"><span class="tags"><span class="tag t-dom"></span><span class="tag t-invited"></span></span><span class="ja">「転型正義—台湾における重層的移行期正義の展開」</span><span class="en">"Transitional Justice in Taiwan"</span><span class="venue">　<span class="ja">日本国際問題研究所 東アジア史検討会</span><span class="en">Japan Institute of International Affairs</span></span></div></div>
+      <div class="entry"><div class="year">2020.10</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「『対外戦略』としての移行期正義——台湾の対中国大陸向け声明を事例に」</span><span class="en">"Transitional Justice as Foreign Strategy"</span><span class="venue">　<span class="ja">日本国際政治学会 2020年度研究大会</span><span class="en">Japan Association of International Relations, 2020 Annual Convention</span></span></div></div>
+      <div class="entry"><div class="year">2019.7</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>「台灣的“例外狀態”與轉型正義」<span class="venue">　<span class="ja">台灣二二八事件真相與轉型正義國際研討會　台北二二八国家記念館</span><span class="en">International Conference on the 228 Incident, Taipei (in Chinese)</span></span></div></div>
+      <div class="entry"><div class="year">2019.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-peer key"></span></span>"The Struggle of a Taiwanese Veteran: Life and Thoughts of Khou Chiau-Eng," <span class="venue">Memory Studies Association 3rd Annual Conference, Universidad Complutense de Madrid</span></div></div>
+      <div class="entry"><div class="year">2019.3</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>「台灣轉型正義在世界脈絡下的普遍性與未來走向」<span class="venue">　<span class="ja">2019年傅正與黨產研究國際學術研討會　台北</span><span class="en">International Conference, Taipei (in Chinese)</span></span></div></div>
+      <div class="entry"><div class="year">2019.3</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span><span class="ja">「台湾における重層的な移行期正義の展開—許昭栄の人と思想から—」</span><span class="en">"Multilayered Transitional Justice in Taiwan: Khou Chiau-Eng"</span><span class="venue">　<span class="ja">Asia Circuit Workshop no.2「認識と政治」高麗大学Global日本研究院、ソウル</span><span class="en">Asia Circuit Workshop no.2, Korea University, Seoul</span></span></div></div>
+      <div class="entry"><div class="year">2018.9</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「ある台湾老兵の奮闘—許昭榮 人と思想」</span><span class="en">"The Struggle of a Taiwanese Veteran"</span><span class="venue">　<span class="ja">国際シンポジウム「グローバルな記憶空間としての東アジア Ver.2」早稲田大学</span><span class="en">International Symposium, Waseda University</span></span></div></div>
+      <div class="entry"><div class="year">2018.7</div><div class="body"><span class="tags"><span class="tag t-dom"></span><span class="tag t-invited"></span></span><span class="ja">「“転型正義”—台湾における例外状態の移行期正義—」</span><span class="en">"Transitional Justice in a State of Exception"</span><span class="venue">　<span class="ja">総合社会科学会 設立20周年記念大会特別シンポジウム　日本女子大学</span><span class="en">20th Anniversary Symposium, Japan Women's University</span></span></div></div>
+      <div class="entry"><div class="year">2018.6</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span>"Transitional Justice as the Government's Way to Restore State Legitimacy and Accountability," <span class="venue">International Research Workshop on Community Policing and Public Administration, The Education University of Hong Kong</span></div></div>
+      <div class="entry"><div class="year">2017.7</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「台湾における過去の克服の諸問題—蔡英文政権期の“転型正義”の動向を中心に—」</span><span class="en">"Coming to Terms with the Past in Taiwan"</span><span class="venue">　<span class="ja">日本台湾学会 第117回定例研究会　早稲田大学</span><span class="en">117th Regular Meeting, Japan Association for Taiwan Studies</span></span></div></div>
+      <div class="entry"><div class="year">2017.2</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「「移行期正義」概念の再検討」</span><span class="en">"Reconsidering the Concept of Transitional Justice"</span><span class="venue">　<span class="ja">科研「東アジアにおける歴史和解のための総合的研究」国際シンポジウム　早稲田大学</span><span class="en">International Symposium, Waseda University</span></span></div></div>
+      <div class="entry"><div class="year">2016.11</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span><span class="tag t-invited"></span></span><span class="ja">「日本における移行期正義の諸問題—過去の克服の比較史の視点から」</span><span class="en">"Transitional Justice in Japan: A Comparative Historical Perspective"</span><span class="venue">　<span class="ja">東アジア日本研究者協議会 第1回国際学術大会　ソウル大学日本研究所</span><span class="en">1st International Congress, East Asian Consortium of Japanese Studies, Seoul National University</span></span></div></div>
+      <div class="entry"><div class="year">2016.5</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span></span>「战后日本有关战争责任的历史认识的变迁」<span class="venue">　<span class="ja">北京大学国際関係学院 第64期博士フォーラム（中国語）</span><span class="en">64th Doctoral Forum, School of International Studies, Peking University (in Chinese)</span></span></div></div>
+      <div class="entry"><div class="year">2014.11</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「1960年代、戦後台湾社会運動の醸成期」</span><span class="en">"The Formative Period of Postwar Taiwanese Social Movements in the 1960s"</span><span class="venue">　<span class="ja">国際シンポジウム「東アジアから1968年をみつめなおす」早稲田大学</span><span class="en">International Symposium, Waseda University</span></span></div></div>
+      <div class="entry"><div class="year">2014.9</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「東アジア移行期正義の諸相—韓国・台湾の事例比較を中心に」</span><span class="en">"Aspects of Transitional Justice in East Asia: Korea and Taiwan"</span><span class="venue">　<span class="ja">『韓国研究のフロンティア』若手夏季研究大会　早稲田大学韓国学研究所</span><span class="en">Waseda Institute of Korean Studies</span></span></div></div>
+      <div class="entry"><div class="year">2014.5</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「ひまわり学生運動の衝撃」</span><span class="en">"The Impact of the Sunflower Student Movement"</span><span class="venue">　<span class="ja">早稲田大学現代政治経済研究所「日本の情報発信」部会</span><span class="en">Waseda Institute of Political Economy</span></span></div></div>
+      <div class="entry"><div class="year">2014.1</div><div class="body"><span class="tags"><span class="tag t-dom"></span></span><span class="ja">「東アジアにおける移行期正義と過去の克服の取り組み」</span><span class="en">"Transitional Justice and Coming to Terms with the Past in East Asia"</span><span class="venue">　<span class="ja">華僑華人学会 次世代ワークショップ　早稲田大学アジア研究機構</span><span class="en">Japanese Association for Overseas Chinese Studies</span></span></div></div>
+      <div class="entry"><div class="year">2012.11</div><div class="body"><span class="tags"><span class="tag t-intl tide"></span></span>「解剖東亞轉型正義模式—台灣，韓國與日本的比較研究」<span class="venue">　<span class="ja">日本大学院東アジア研究博士課程学生訪台研修　淡江大学（中国語）</span><span class="en">Tamkang University, Taipei (in Chinese)</span></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">教育</span><span class="en">Teaching</span><span class="romaji">Teaching</span></h2>
+    <div class="cols rise">
+      <div>
+        <h3><span class="ja">東海大学 政治経済学部</span><span class="en">Tokai University</span></h3>
+        <ul class="field-list">
+          <li><span class="k"><span class="ja">講義</span><span class="en">Lecture</span></span><span class="ja">比較政治学A／B　政治学原論A／B　グローバルガバナンス論　英語で学ぶ政治B</span><span class="en">Comparative Politics A/B · Principles of Political Science A/B · Global Governance · Politics in English B</span></li>
+          <li><span class="k"><span class="ja">演習</span><span class="en">Seminar</span></span><span class="ja">専門演習1〜4　入門ゼミナールB</span><span class="en">Advanced Seminars 1–4 · Introductory Seminar B</span></li>
+          <li><span class="k"><span class="ja">大学院</span><span class="en">Graduate</span></span><span class="ja">地域研究特殊講義（アジア）</span><span class="en">Special Lecture in Area Studies (Asia)</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="ja">海外での教育活動</span><span class="en">Teaching Abroad</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2020.12</span><span class="ja">國立政治大学 台湾史研究所「台灣歷史、文化與人權發展」連続講座（中国語）</span><span class="en">National Chengchi University, Graduate Institute of Taiwan History — lecture series (in Chinese)</span></li>
+          <li><span class="k">2016.7</span><span class="ja">中国人民大学 国際関係学院　ゲスト講義「汉娜阿伦特的思想与历史责任」（中国語）</span><span class="en">Renmin University of China — guest lecture (in Chinese)</span></li>
+          <li><span class="k">2015.4</span><span class="ja">パリ第七大学（Université Paris-Diderot）訪問学者・ゲスト講義（英語）</span><span class="en">Université Paris-Diderot — visiting scholar and guest lecture (in English)</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rise">
+      <h3 style="margin-top:2.9rem"><span class="ja">その他の教育歴</span><span class="en">Other Teaching</span></h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="year">2021–</div>
+          <div class="body"><span class="ja">法政大学 リベラルアーツ教育センター「基礎中国語」「中国語表現」「中国語中級」</span><span class="en">Hosei University, Center for Liberal Arts — Chinese language courses</span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2010–2021</div>
+          <div class="body"><span class="ja">早稲田大学 グローバルエデュケーションセンター・社会科学部「台湾を知る」「中国総合講座」「台湾政治研究」「地域研究としての台湾」（院）「Introduction to Taiwanese History」ほか</span><span class="en">Waseda University, Global Education Center and School of Social Sciences — "Understanding Taiwan," "Introduction to Taiwanese History," "Taiwanese Politics," and others</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service" class="band">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">学会・受賞・社会活動</span><span class="en">Affiliations &amp; Activities</span><span class="romaji">Affiliations &amp; Activities</span></h2>
+    <div class="cols rise">
+      <div>
+        <h3><span class="ja">所属学会</span><span class="en">Academic Affiliations</span></h3>
+        <ul class="field-list">
+          <li>International Association for Reconciliation Studies</li>
+          <li>American Historical Association</li>
+          <li>Association for Asian Studies</li>
+          <li>Memory Studies Association</li>
+          <li><span class="ja">日本国際政治学会</span><span class="en">Japan Association of International Relations</span></li>
+          <li><span class="ja">日本台湾学会</span><span class="en">Japan Association for Taiwan Studies</span></li>
+          <li>政治経済学会</li>
+        </ul>
+        <h3><span class="ja">学会での役職</span><span class="en">Service</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2020.12</span><span class="ja">日本台湾学会 常任理事会 書記</span><span class="en">Secretary, Standing Board, Japan Association for Taiwan Studies</span></li>
+          <li><span class="k">2020</span><span class="ja">日本台湾学会 第22回学術大会（早稲田大会）オンライン開催責任者</span><span class="en">Online Conference Coordinator, 22nd Annual Conference, JATS</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="ja">受賞・研究助成（個人）</span><span class="en">Awards &amp; Fellowships</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2016</span><span class="ja">香港百賢財団 The Asian Future Leaders Scholarship Program</span><span class="en">Asian Future Leaders Scholarship Program, Bai Xian Asia Institute</span></li>
+          <li><span class="k">2015</span><span class="ja">北京大学国際関係学院 学習優秀賞</span><span class="en">Academic Excellence Award, School of International Studies, Peking University</span></li>
+          <li><span class="k">2014–2016</span><span class="ja">中国国家漢弁「新漢学計划」Confucius China Studies Program Ph.D. Fellow</span><span class="en">Confucius China Studies Program Ph.D. Fellow, Hanban</span></li>
+          <li><span class="k">2013</span><span class="ja">日本学生支援機構 特に優れた業績による返還免除（半額）</span><span class="en">JASSO Scholarship Repayment Exemption for Outstanding Achievement</span></li>
+        </ul>
+        <h3><span class="ja">社会活動・メディア</span><span class="en">Public Engagement</span></h3>
+        <ul class="field-list">
+          <li><span class="k">2021.7</span><span class="ja">TBSテレビ『Nスタ』特集「台湾 若者が支持した「ホラー映画」日本上陸へ」取材協力・出演</span><span class="en">TBS Television, "N-Sta" — interview and research cooperation</span></li>
+          <li><span class="k">2021.6</span><span class="ja">かわさき市民アカデミー「世界を旅する（24）台湾ツアー」講師</span><span class="en">Kawasaki Citizens' Academy — public lecture</span></li>
+          <li><span class="k">2020.9</span><span class="ja">北東アジア学会 第26回学術研究大会 分科会コメンテーター</span><span class="en">Discussant, 26th Annual Conference, Japan Association for Northeast Asian Studies</span></li>
+          <li><span class="k">2017</span><span class="ja">台湾中信金融管理学院 訪日サマースクール「夏日遊學団」講師・コーディネーター</span><span class="en">Lecturer and coordinator, CTBC Business School Summer School</span></li>
+          <li><span class="k">2014</span><span class="ja">陳文成博士紀念基金会「第10回 緑島人権の道：青年体験キャンプ」学術指導員</span><span class="en">Academic advisor, Chen Wen-chen Memorial Foundation Green Island Human Rights Camp</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="profiles">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">研究者プロフィール・連絡先</span><span class="en">Profiles &amp; Contact</span><span class="romaji">Profiles &amp; Contact</span></h2>
+
+    <div class="links rise">
+      <a class="link-card" href="https://researchmap.jp/a.h756" target="_blank" rel="noopener">
+        <span class="lc-name">researchmap</span>
+        <span class="lc-sub">researchmap.jp/a.h756</span>
+      </a>
+      <a class="link-card" href="https://nrid.nii.ac.jp/nrid/1000090837296" target="_blank" rel="noopener">
+        <span class="lc-name"><span class="ja">科研費データベース（KAKEN）</span><span class="en">KAKEN</span></span>
+        <span class="lc-sub">nrid.nii.ac.jp/nrid/1000090837296</span>
+      </a>
+      <a class="link-card" href="https://orcid.org/0009-0003-5499-4696" target="_blank" rel="noopener">
+        <span class="lc-name">ORCID</span>
+        <span class="lc-sub">0009-0003-5499-4696</span>
+      </a>
+      <a class="link-card" href="https://jglobal.jst.go.jp/detail?JGLOBAL_ID=201801001321534036" target="_blank" rel="noopener">
+        <span class="lc-name">J-GLOBAL</span>
+        <span class="lc-sub">201801001321534036</span>
+      </a>
+      <a class="link-card" href="https://memory.w.waseda.jp/member/368" target="_blank" rel="noopener">
+        <span class="lc-name"><span class="ja">国際和解学の探究</span><span class="en">Intl. Reconciliation Studies</span></span>
+        <span class="lc-sub">memory.w.waseda.jp/member/368</span>
+      </a>
+    </div>
+
+    <div class="cols rise" style="margin-top:2.8rem">
+      <div>
+        <ul class="contact-list">
+          <li>
+            <span class="k">Email</span>
+            <a href="mailto:hirai.arata.k@tokai.ac.jp">hirai.arata.k@tokai.ac.jp</a>
+          </li>
+          <li>
+            <span class="k"><span class="ja">研究者番号</span><span class="en">Researcher No.</span></span>
+            <span class="mono">90837296</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="contact-list">
+          <li>
+            <span class="k"><span class="ja">所属</span><span class="en">Affiliation</span></span>
+            <span class="ja">東海大学 政治経済学部 政治学科</span><span class="en">School of Political Science and Economics, Tokai University</span>
+          </li>
+          <li>
+            <span class="k"><span class="ja">語学</span><span class="en">Languages</span></span>
+            <span class="ja">日本語・英語・中国語（HSK6級）・フランス語（仏検準2級）</span><span class="en">Japanese · English · Chinese (HSK Level 6) · French</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="ja">© 平井 新　Arata Hirai</span><span class="en">© Arata Hirai</span>
+  </div>
+</footer>
+
+</div><!-- /.layer -->
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* ---- language ---- */
+  var bJa = document.getElementById('btn-ja');
+  var bEn = document.getElementById('btn-en');
+  function setLang(l) {
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l === 'en' ? 'en' : 'ja');
+    bJa.setAttribute('aria-pressed', String(l === 'ja'));
+    bEn.setAttribute('aria-pressed', String(l === 'en'));
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  }
+  bJa.addEventListener('click', function () { setLang('ja'); });
+  bEn.addEventListener('click', function () { setLang('en'); });
+  var savedLang = 'ja';
+  try { savedLang = localStorage.getItem('lang') || 'ja'; } catch (e) {}
+  setLang(savedLang);
+
+  /* ---- theme ---- */
+  var bTheme = document.getElementById('btn-theme');
+  function currentTheme() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  bTheme.addEventListener('click', function () {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    drawContour();
+  });
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) root.setAttribute('data-theme', savedTheme);
+  } catch (e) {}
+
+  /* ---- contour background ---- */
+  var cv = document.getElementById('contour');
+  var ctx = cv.getContext('2d');
+  function drawContour() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = window.innerWidth, h = window.innerHeight;
+    cv.width = w * dpr; cv.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    var stroke = getComputedStyle(root).getPropertyValue('--contour').trim();
+    ctx.strokeStyle = stroke || 'rgba(0,0,0,0.05)';
+    ctx.lineWidth = 1;
+    var lines = 26;
+    for (var i = 0; i < lines; i++) {
+      var base = (h / (lines - 1)) * i;
+      var amp = 26 + (i % 5) * 13;
+      var freq = 0.0021 + (i % 3) * 0.0006;
+      var phase = i * 0.9;
+      ctx.beginPath();
+      for (var x = -20; x <= w + 20; x += 6) {
+        var y = base
+              + Math.sin(x * freq + phase) * amp
+              + Math.sin(x * freq * 2.3 + phase * 1.7) * amp * 0.32;
+        if (x === -20) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+  }
+  drawContour();
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(drawContour, 180);
+  });
+
+  /* ---- reveal ----
+     Plain geometry check on load / scroll / resize, plus a safety net that
+     reveals everything after 1.5s. The page must never stay blank because an
+     animation hook failed to run. */
+  var rises = Array.prototype.slice.call(document.querySelectorAll('.rise'));
+  rises.forEach(function (el, i) {
+    el.style.transitionDelay = (Math.min(i, 5) * 55) + 'ms';
+  });
+  function sweep() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = rises.length - 1; i >= 0; i--) {
+      var el = rises[i];
+      if (el.getBoundingClientRect().top < vh * 0.94) {
+        el.classList.add('in');
+        rises.splice(i, 1);
+      }
+    }
+  }
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { sweep(); ticking = false; });
+  }
+  sweep();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', sweep);
+  setTimeout(function () {
+    document.querySelectorAll('.rise').forEach(function (el) { el.classList.add('in'); });
+  }, 1500);
+
+  /* ---- side nav active state ---- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.sidenav a'));
+  var sections = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function markNav() {
+    var mid = (window.innerHeight || 800) * 0.4;
+    var active = -1;
+    for (var i = 0; i < sections.length; i++) {
+      var s = sections[i];
+      if (!s) continue;
+      if (s.getBoundingClientRect().top <= mid) active = i;
+    }
+    navLinks.forEach(function (a, i) { a.classList.toggle('on', i === active); });
+  }
+  markNav();
+  window.addEventListener('scroll', markNav, { passive: true });
+  window.addEventListener('resize', markNav);
+})();
+</script>
+</body>
+</html>
