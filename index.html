@@ -168,7 +168,46 @@ span.ja { display: inline; }
 .lang[aria-pressed="true"] { color: var(--red-ink); border-color: var(--hair); }
 .lang:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
-@media (max-width: 60rem) {
+/* 広い画面では右側に縦置き。上部の横タブは隠す */
+.sidetabs {
+  position: fixed;
+  right: clamp(0.9rem, 2.2vw, 2.2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidetabs a {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  font-family: var(--gothic);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  padding: 0.4rem 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1.5px solid var(--hair);
+  border-radius: 1px;
+  background: rgba(240, 234, 219, 0.72);
+  transition: background .18s, color .18s, border-color .18s;
+}
+.sidetabs a:hover { border-color: var(--red); background: var(--paper-2); }
+.sidetabs a.on { background: var(--plate); color: var(--paper-2); border-color: var(--plate); box-shadow: 3px 3px 0 var(--red); }
+.sidetabs a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+@media (min-width: 78rem) {
+  .sidetabs { display: flex; }
+  .topbar .tabs-nav { display: none; }
+}
+
+@media (max-width: 77.99rem) {
   .topbar-in { flex-wrap: wrap; gap: 0.5rem 0.8rem; }
   .tabs-nav { order: 3; width: 100%; flex-basis: 100%; }
   .tabs { padding-bottom: 0.35rem; }
@@ -200,23 +239,44 @@ span.ja { display: inline; }
 }
 .portrait:hover img { filter: grayscale(0.1) contrast(1.02); }
 
-.plate {
-  display: inline-block;
+.name { margin: 0; font-size: 1rem; line-height: 1; }
+
+/* 氏名ロゴ：一文字ずつ独立した箱、一つだけ深紅 */
+.namelogo {
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px;
+  box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red);
+}
+:root[data-lang="en"] .namelogo { display: none; }
+.cell {
+  display: grid;
+  place-items: center;
+  width: 1.30em;
+  height: 1.30em;
   background: var(--plate);
-  padding: 0.5rem 1.1rem 0.65rem;
-  box-shadow: 0 0 0 1.5px var(--plate), 7px 7px 0 var(--red);
+  color: #F5F0E3;
+  font-family: var(--gothic);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6.6vw, 4.3rem);
+  line-height: 1;
+  letter-spacing: 0;
 }
-.name {
-  margin: 0;
-  font-family: var(--mincho);
+.cell.is-red { background: var(--red); }
+
+.name-en-plate {
+  display: none;
+  background: var(--plate);
+  padding: 0.42rem 1.05rem 0.58rem;
+  box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red);
+  font-family: var(--roman);
   font-weight: 600;
-  font-size: clamp(2.4rem, 7.6vw, 4.9rem);
-  line-height: 1.06;
-  letter-spacing: 0.14em;
-  text-indent: 0.14em;
-  color: #F4EFE2;
+  font-size: clamp(2.1rem, 6vw, 3.9rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #F5F0E3;
 }
-:root[data-lang="en"] .name { font-family: var(--roman); letter-spacing: 0.03em; text-indent: 0; }
+:root[data-lang="en"] .name-en-plate { display: inline-block; }
 .name-roman {
   margin: 0.85rem 0 0;
   font-family: var(--roman);
@@ -266,7 +326,8 @@ span.ja { display: inline; }
 
 @media (max-width: 54rem) {
   .namecard { gap: 1rem; }
-  .plate { padding: 0.4rem 0.75rem 0.5rem; box-shadow: 0 0 0 1.5px var(--plate), 5px 5px 0 var(--red); }
+  .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
+  .name-en-plate { box-shadow: 0 0 0 2px var(--plate), 5px 5px 0 var(--red); }
   .portrait { box-shadow: 0 0 0 1.5px var(--plate), 4px 4px 0 var(--red); }
 }
 
@@ -524,6 +585,21 @@ footer a { color: var(--ink-2); }
   </div>
 </div>
 
+<nav aria-label="セクション（縦）">
+  <ul class="sidetabs">
+    <li><a href="#news"><span class="ja">お知らせ</span><span class="en">News</span><span class="zh">最新消息</span></a></li>
+    <li><a href="#about"><span class="ja">研究領域</span><span class="en">Research</span><span class="zh">研究領域</span></a></li>
+    <li><a href="#career"><span class="ja">職歴</span><span class="en">Career</span><span class="zh">經歷</span></a></li>
+    <li><a href="#books"><span class="ja">著書</span><span class="en">Books</span><span class="zh">專書</span></a></li>
+    <li><a href="#articles"><span class="ja">論文</span><span class="en">Articles</span><span class="zh">論文</span></a></li>
+    <li><a href="#grants"><span class="ja">研究助成</span><span class="en">Grants</span><span class="zh">研究計畫</span></a></li>
+    <li><a href="#talks"><span class="ja">学会報告</span><span class="en">Talks</span><span class="zh">學會發表</span></a></li>
+    <li><a href="#teaching"><span class="ja">教育</span><span class="en">Teaching</span><span class="zh">教學</span></a></li>
+    <li><a href="#service"><span class="ja">学会・受賞</span><span class="en">Service</span><span class="zh">學會．獲獎</span></a></li>
+    <li><a href="#profiles"><span class="ja">連絡先</span><span class="en">Contact</span><span class="zh">聯絡方式</span></a></li>
+  </ul>
+</nav>
+
 <header class="hero" id="top">
   <div class="wrap">
     <div class="namecard rise">
@@ -532,7 +608,7 @@ footer a { color: var(--ink-2); }
       </div>
       <div>
         <p class="eyebrow">Tokai University</p>
-        <div class="plate"><h1 class="name"><span class="ja">平井 新</span><span class="en">Arata Hirai</span><span class="zh">平井 新</span></h1></div>
+        <h1 class="name"><span class="namelogo" aria-label="平井 新"><span class="cell" aria-hidden="true">平</span><span class="cell is-red" aria-hidden="true">井</span><span class="cell" aria-hidden="true">新</span></span><span class="name-en-plate">Arata Hirai</span></h1>
         <p class="name-roman"><span class="ja">Arata Hirai, Ph.D.</span><span class="en">平井 新</span><span class="zh">Arata Hirai, Ph.D.</span></p>
       </div>
     </div>
@@ -1114,15 +1190,22 @@ footer a { color: var(--ink-2); }
   }, 1500);
 
   /* ---- タブの現在地 ---- */
-  var tabLinks = Array.prototype.slice.call(document.querySelectorAll('.tabs a'));
-  var targets = tabLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var tabLinks = Array.prototype.slice.call(document.querySelectorAll('.tabs a, .sidetabs a'));
+  var ids = [];
+  tabLinks.forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (ids.indexOf(h) < 0) ids.push(h);
+  });
   function markTab() {
     var line = (window.innerHeight || 800) * 0.32;
-    var active = -1;
-    for (var i = 0; i < targets.length; i++) {
-      if (targets[i] && targets[i].getBoundingClientRect().top <= line) active = i;
-    }
-    tabLinks.forEach(function (a, i) { a.classList.toggle('on', i === active); });
+    var current = null;
+    ids.forEach(function (h) {
+      var el = document.querySelector(h);
+      if (el && el.getBoundingClientRect().top <= line) current = h;
+    });
+    tabLinks.forEach(function (a) {
+      a.classList.toggle('on', a.getAttribute('href') === current);
+    });
   }
   markTab();
 })();
