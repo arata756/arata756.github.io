@@ -31,8 +31,8 @@
   --veil:     240, 234, 219;   /* 帯・タブの下地 */
   --on-dark:  #F2EDE1;         /* 黒箱・深紅の上に載る文字 */
   --on-dark-2:#B9B2A4;
-  --map-op:   0.30;
-  --map-fx:   sepia(0.25) contrast(0.94);
+  --map-op:   0.46;
+  --map-fx:   sepia(0.18) contrast(1.02);
   --logo-bg:  transparent;     /* 箱と箱の隙間 */
   --logo-line: var(--plate);   /* 箱組みの外枠 */
 
@@ -53,8 +53,8 @@
   --shade:    rgba(233, 228, 217, 0.055);
   --scrim:    43, 42, 40;
   --veil:     52, 51, 48;
-  --map-op:   0.20;
-  --map-fx:   invert(1) sepia(0.18) contrast(0.82) brightness(0.95);
+  --map-op:   0.30;
+  --map-fx:   invert(1) sepia(0.15) contrast(0.86) brightness(0.95);
   --logo-bg:  #DAD5C9;
   --logo-line: #DAD5C9;
 }
@@ -90,7 +90,7 @@ body {
   z-index: 0;
   background-image: url("map-1770.jpg");
   background-size: cover;
-  background-position: 52% 42%;
+  background-position: 65% 25%;
   opacity: var(--map-op);
   filter: var(--map-fx);
   pointer-events: none;
@@ -99,9 +99,17 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(120% 85% at 50% 30%, rgba(var(--scrim),0.58) 0%, rgba(var(--scrim),0.86) 55%, rgba(var(--scrim),0.95) 100%);
+  /* 本文のある左側は地色で覆い、内容の無い右側は地図を見せる */
+  background: linear-gradient(96deg,
+    rgba(var(--scrim), 0.94) 0%,
+    rgba(var(--scrim), 0.91) 46%,
+    rgba(var(--scrim), 0.52) 62%,
+    rgba(var(--scrim), 0.22) 100%);
   pointer-events: none;
+}
+/* 内容が全幅に広がる画面では一様に覆う */
+@media (max-width: 62rem) {
+  .map-scrim { background: rgba(var(--scrim), 0.90); }
 }
 .layer { position: relative; z-index: 1; }
 
@@ -398,6 +406,7 @@ span.ja { display: inline; }
   .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red); }
   .name-en-logo .row-2 {
     margin-left: calc(2.6 * (1.30em + 4px));
+    margin-top: 0.55em;
     box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red);
   }
   .portrait { box-shadow: 0 0 0 1.5px var(--logo-line), 4px 4px 0 var(--red); }
@@ -598,6 +607,7 @@ h3:first-of-type { margin-top: 0; }
 .contact-list a:hover { box-shadow: inset 0 -1px 0 currentColor; }
 .contact-list a:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 .mono { font-variant-numeric: tabular-nums; letter-spacing: 0.03em; }
+.mailtext { font-family: var(--roman); letter-spacing: 0.02em; }
 
 /* ---- お知らせ ---- */
 .news { display: flex; flex-direction: column; gap: 0.25rem; max-width: 56rem; }
@@ -706,11 +716,11 @@ footer a { color: var(--ink-2); }
       </p>
 
       <div class="lede">
-        <p class="ja">移行期正義（transitional justice）と歴史和解を軸に、現代台湾政治と東アジアの国際関係を研究しています。権威主義体制下の国家暴力をめぐる過去の清算が、台湾という「例外状態」の中でどのように重層的に展開してきたのかを、法政治制度と個人のライフヒストリーから追ってきました。</p>
+        <p class="ja">東海大学政治経済学部政治学科で比較政治学を担当しています。移行期正義（transitional justice）と歴史和解を軸に、現代台湾政治と東アジアの国際関係を研究しています。権威主義体制下の国家暴力をめぐる過去の清算が、台湾という「例外状態」の中でどのように重層的に展開してきたのかを、法政治制度の分析と現代史の視点から追ってきました。</p>
         <p class="ja">近年は関心を島嶼へ広げ、沖縄・奄美・八重山・与那国といった〈境界の島々〉におけるアイデンティティと記憶の政治および安全保障との緊張関係を、「台湾有事」論の再検討とあわせて論じています。</p>
-        <p class="en">My research centres on transitional justice and historical reconciliation in contemporary Taiwan and East Asia. I have traced how the reckoning with state violence under authoritarian rule unfolded in layers within Taiwan's "state of exception" — reading it through both legal-political institutions and individual life histories.</p>
+        <p class="en">I am a Junior Associate Professor of Comparative Politics (with tenure) at Tokai University, School of Political Science and Economics. My research centres on transitional justice and historical reconciliation in contemporary Taiwan and East Asia. I have traced how the reckoning with state violence under authoritarian rule unfolded in layers within Taiwan's "state of exception" — through the analysis of legal-political institutions and the perspective of modern history.</p>
         <p class="en">More recently my work has moved to the islands, examining how identity and the politics of memory come into tension with security in the border islands of Okinawa, Amami, Yaeyama and Yonaguni, alongside a re-examination of the "Taiwan contingency" debate.</p>
-        <p class="zh">本人以轉型正義（transitional justice）與歷史和解為主軸，研究當代台灣政治與東亞國際關係。長年追索威權體制下國家暴力的清算，如何在台灣此一「例外狀態」之中層層展開——並自法政治制度與個人生命史加以考察。</p>
+        <p class="zh">現於東海大學政治經濟學部政治學科擔任比較政治學專任講師。以轉型正義（transitional justice）與歷史和解為主軸，研究當代台灣政治與東亞國際關係。長年追索威權體制下國家暴力的清算，如何在台灣此一「例外狀態」之中層層展開——並自法政治制度的分析與現代史的視角加以考察。</p>
         <p class="zh">近年將關切延伸至島嶼，探討沖繩、奄美、八重山、與那國等〈邊界島嶼〉的認同與記憶政治，及其與安全保障之間的張力，並與「台海有事」論的再檢討相互對照。</p>
       </div>
 
@@ -719,7 +729,7 @@ footer a { color: var(--ink-2); }
         <li><a href="https://scholar.google.co.jp/citations?user=v7Iy4EcAAAAJ&amp;hl=ja" target="_blank" rel="noopener">Google Scholar</a></li>
         <li><a href="https://nrid.nii.ac.jp/nrid/1000090837296" target="_blank" rel="noopener">KAKEN</a></li>
         <li><a href="https://orcid.org/0009-0003-5499-4696" target="_blank" rel="noopener">ORCID</a></li>
-        <li><a href="mailto:hirai.arata.k@tokai.ac.jp">Email</a></li>
+        <li><a href="#profiles">Email</a></li>
       </ul>
     </div>
   </div>
@@ -802,7 +812,7 @@ footer a { color: var(--ink-2); }
     <div class="entries rise">
       <div class="entry">
         <div class="year">2026.4–</div>
-        <div class="body"><span class="ja"><strong>専任講師</strong>　東海大学 政治経済学部 政治学科</span><span class="en"><strong>Junior Associate Professor (with tenure)</strong> — School of Political Science and Economics, Tokai University</span><span class="zh"><strong>專任講師</strong>　東海大學 政治經濟學部 政治學科</span></div>
+        <div class="body"><span class="ja"><strong>専任講師（比較政治学）</strong>　東海大学 政治経済学部 政治学科</span><span class="en"><strong>Junior Associate Professor of Comparative Politics (with tenure)</strong> — School of Political Science and Economics, Tokai University</span><span class="zh"><strong>專任講師（比較政治學）</strong>　東海大學 政治經濟學部 政治學科</span></div>
       </div>
       <div class="entry">
         <div class="year">2023.4–2026.3</div>
@@ -1279,7 +1289,7 @@ footer a { color: var(--ink-2); }
         <ul class="contact-list">
           <li>
             <span class="k">Email</span>
-            <a href="mailto:hirai.arata.k@tokai.ac.jp">hirai.arata.k@tokai.ac.jp</a>
+            <span class="mailtext">hirai.arata.k [at] tokai.ac.jp</span>
           </li>
           <li>
             <span class="k"><span class="ja">研究者番号</span><span class="en">Researcher No.</span><span class="zh">研究者編號</span></span>
@@ -1308,9 +1318,9 @@ footer a { color: var(--ink-2); }
   <div class="wrap">
     <p><span class="ja">© 平井 新　Arata Hirai</span><span class="en">© Arata Hirai</span><span class="zh">© 平井 新　Arata Hirai</span></p>
     <p>
-      <span class="ja">背景図版：Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770（パブリックドメイン／Wikimedia Commons）</span>
-      <span class="en">Background map: Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770 (public domain, via Wikimedia Commons)</span>
-      <span class="zh">背景圖版：Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770（公共領域／Wikimedia Commons）</span>
+      <span class="ja">背景図版：Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770（部分・天地反転／パブリックドメイン／Wikimedia Commons）</span>
+      <span class="en">Background map: Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770 (detail, inverted; public domain, via Wikimedia Commons)</span>
+      <span class="zh">背景圖版：Rigobert Bonne, <em>L'Empire de la Chine d'après l'Atlas Chinois, avec les Isles du Japon</em>, Paris, 1770（局部．天地倒置／公共領域／Wikimedia Commons）</span>
     </p>
   </div>
 </footer>
