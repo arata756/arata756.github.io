@@ -132,7 +132,9 @@ span.ja { display: inline; }
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.6rem 0;
+  /* 左右は .wrap の余白を残す（padding一括指定だと打ち消してしまう） */
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }
 .brand {
   font-family: var(--gothic);
@@ -705,11 +707,11 @@ footer a { color: var(--ink-2); }
 
       <div class="lede">
         <p class="ja">移行期正義（transitional justice）と歴史和解を軸に、現代台湾政治と東アジアの国際関係を研究しています。権威主義体制下の国家暴力をめぐる過去の清算が、台湾という「例外状態」の中でどのように重層的に展開してきたのかを、法政治制度と個人のライフヒストリーから追ってきました。</p>
-        <p class="ja">近年は関心を島嶼へ広げ、沖縄・奄美・八重山・与那国といった〈境界の島々〉における記憶の政治と安全保障の緊張を、「台湾有事」論の再検討とあわせて論じています。</p>
+        <p class="ja">近年は関心を島嶼へ広げ、沖縄・奄美・八重山・与那国といった〈境界の島々〉におけるアイデンティティと記憶の政治および安全保障との緊張関係を、「台湾有事」論の再検討とあわせて論じています。</p>
         <p class="en">My research centres on transitional justice and historical reconciliation in contemporary Taiwan and East Asia. I have traced how the reckoning with state violence under authoritarian rule unfolded in layers within Taiwan's "state of exception" — reading it through both legal-political institutions and individual life histories.</p>
-        <p class="en">More recently my work has moved to the islands: the politics of memory and the tensions of security in the border islands of Okinawa, Amami, Yaeyama and Yonaguni, alongside a re-examination of the "Taiwan contingency" debate.</p>
+        <p class="en">More recently my work has moved to the islands, examining how identity and the politics of memory come into tension with security in the border islands of Okinawa, Amami, Yaeyama and Yonaguni, alongside a re-examination of the "Taiwan contingency" debate.</p>
         <p class="zh">本人以轉型正義（transitional justice）與歷史和解為主軸，研究當代台灣政治與東亞國際關係。長年追索威權體制下國家暴力的清算，如何在台灣此一「例外狀態」之中層層展開——並自法政治制度與個人生命史加以考察。</p>
-        <p class="zh">近年將關切延伸至島嶼，探討沖繩、奄美、八重山、與那國等〈邊界島嶼〉的記憶政治與安全保障之間的張力，並與「台海有事」論的再檢討相互對照。</p>
+        <p class="zh">近年將關切延伸至島嶼，探討沖繩、奄美、八重山、與那國等〈邊界島嶼〉的認同與記憶政治，及其與安全保障之間的張力，並與「台海有事」論的再檢討相互對照。</p>
       </div>
 
       <ul class="quicklinks">
