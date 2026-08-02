@@ -181,6 +181,8 @@ span.ja { display: inline; }
   margin: 0;
   padding: 0;
 }
+.sidetabs { max-height: calc(100vh - 5rem); overflow-y: auto; scrollbar-width: none; }
+.sidetabs::-webkit-scrollbar { display: none; }
 .sidetabs a {
   display: block;
   text-align: center;
@@ -285,6 +287,16 @@ span.ja { display: inline; }
   padding: 5px;
   box-shadow: 0 0 0 2px var(--plate);
 }
+.drwrap { display: inline-flex; align-items: center; }
+.drmark {
+  font-family: var(--gothic);
+  font-weight: 800;
+  font-size: 1.15em;
+  line-height: 1;
+  color: var(--ink);
+  margin-right: 0.12em;
+  letter-spacing: -0.01em;
+}
 .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
 .name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: 0.24em; box-shadow: 0 0 0 2px var(--plate), 8px 8px 0 var(--red); }
 .name-en-logo .cell {
@@ -301,7 +313,7 @@ span.ja { display: inline; }
   text-transform: uppercase;
   color: var(--ink-2);
 }
-:root[data-lang="en"] .name-roman { font-family: var(--mincho); letter-spacing: 0.3em; text-transform: none; }
+:root[data-lang="en"] .name-roman { display: none; }
 .eyebrow {
   margin: 0 0 0.9rem;
   font-family: var(--gothic);
@@ -591,7 +603,8 @@ footer a { color: var(--ink-2); }
         <li><a href="#about"><span class="ja">研究領域</span><span class="en">Research</span><span class="zh">研究領域</span></a></li>
         <li><a href="#career"><span class="ja">職歴</span><span class="en">Career</span><span class="zh">經歷</span></a></li>
         <li><a href="#books"><span class="ja">著書</span><span class="en">Books</span><span class="zh">專書</span></a></li>
-        <li><a href="#articles"><span class="ja">論文</span><span class="en">Articles</span><span class="zh">論文</span></a></li>
+        <li><a href="#articles"><span class="ja">論文</span><span class="en">Papers</span><span class="zh">論文</span></a></li>
+        <li><a href="#commentary"><span class="ja">解説記事</span><span class="en">Commentary</span><span class="zh">時事評論</span></a></li>
         <li><a href="#grants"><span class="ja">研究助成</span><span class="en">Grants</span><span class="zh">研究計畫</span></a></li>
         <li><a href="#talks"><span class="ja">学会報告</span><span class="en">Talks</span><span class="zh">學會發表</span></a></li>
         <li><a href="#teaching"><span class="ja">教育</span><span class="en">Teaching</span><span class="zh">教學</span></a></li>
@@ -613,8 +626,9 @@ footer a { color: var(--ink-2); }
     <li><a href="#about"><span class="ja">研究領域</span><span class="en">Research</span><span class="zh">研究領域</span></a></li>
     <li><a href="#career"><span class="ja">職歴</span><span class="en">Career</span><span class="zh">經歷</span></a></li>
     <li><a href="#books"><span class="ja">著書</span><span class="en">Books</span><span class="zh">專書</span></a></li>
-    <li><a href="#articles"><span class="ja">論文</span><span class="en">Articles</span><span class="zh">論文</span></a></li>
-    <li><a href="#grants"><span class="ja">研究助成</span><span class="en">Grants</span><span class="zh">研究計畫</span></a></li>
+    <li><a href="#articles"><span class="ja">論文</span><span class="en">Papers</span><span class="zh">論文</span></a></li>
+    <li><a href="#commentary"><span class="ja">解説記事</span><span class="en">Commentary</span><span class="zh">時事評論</span></a></li>
+        <li><a href="#grants"><span class="ja">研究助成</span><span class="en">Grants</span><span class="zh">研究計畫</span></a></li>
     <li><a href="#talks"><span class="ja">学会報告</span><span class="en">Talks</span><span class="zh">學會發表</span></a></li>
     <li><a href="#teaching"><span class="ja">教育</span><span class="en">Teaching</span><span class="zh">教學</span></a></li>
     <li><a href="#service"><span class="ja">学会・受賞</span><span class="en">Service</span><span class="zh">學會．獲獎</span></a></li>
@@ -630,8 +644,8 @@ footer a { color: var(--ink-2); }
       </div>
       <div>
         <p class="eyebrow">Tokai University</p>
-        <h1 class="name"><span class="namelogo" aria-label="平井 新"><span class="cell" aria-hidden="true">平</span><span class="cell is-red" aria-hidden="true">井</span><span class="cell" aria-hidden="true">新</span></span><span class="name-en-logo" aria-label="Arata Hirai"><span class="row row-1" aria-hidden="true"><span class="cell">A</span><span class="cell is-red">R</span><span class="cell">A</span><span class="cell">T</span><span class="cell">A</span></span><span class="row row-2" aria-hidden="true"><span class="cell">H</span><span class="cell">I</span><span class="cell">R</span><span class="cell">A</span><span class="cell">I</span></span></span></h1>
-        <p class="name-roman"><span class="ja">Arata Hirai, Ph.D.</span><span class="en">平井 新</span><span class="zh">Arata Hirai, Ph.D.</span></p>
+        <h1 class="name"><span class="namelogo" aria-label="平井 新"><span class="cell" aria-hidden="true">平</span><span class="cell is-red" aria-hidden="true">井</span><span class="cell" aria-hidden="true">新</span></span><span class="name-en-logo" aria-label="Dr. Arata Hirai"><span class="drwrap"><span class="drmark" aria-hidden="true">Dr.</span><span class="row row-1" aria-hidden="true"><span class="cell">A</span><span class="cell is-red">R</span><span class="cell">A</span><span class="cell">T</span><span class="cell">A</span></span></span><span class="row row-2" aria-hidden="true"><span class="cell">H</span><span class="cell">I</span><span class="cell">R</span><span class="cell">A</span><span class="cell">I</span></span></span></h1>
+        <p class="name-roman"><span class="ja">Arata Hirai, Ph.D.</span><span class="zh">Arata Hirai, Ph.D.</span></p>
       </div>
     </div>
 
@@ -799,7 +813,7 @@ footer a { color: var(--ink-2); }
 
 <section id="articles" class="band">
   <div class="wrap">
-    <h2 class="rise"><span class="ja">論文</span><span class="en">Articles</span><span class="zh">論文</span><span class="romaji">Articles</span></h2>
+    <h2 class="rise"><span class="ja">論文</span><span class="en">Papers</span><span class="zh">論文</span><span class="romaji">Papers</span></h2>
     <div class="entries rise">
 
       <div class="entry">
@@ -916,7 +930,94 @@ footer a { color: var(--ink-2); }
   </div>
 </section>
 
-<section id="grants">
+<section id="commentary">
+  <div class="wrap">
+    <h2 class="rise"><span class="ja">解説記事・寄稿</span><span class="en">Commentary</span><span class="zh">時事評論．專欄</span><span class="romaji">Commentary</span></h2>
+
+    <div class="links rise" style="margin-bottom:2.4rem">
+      <a class="link-card" href="https://toyokeizai.net/list/author/9080" target="_blank" rel="noopener">
+        <span class="lc-name"><span class="ja">東洋経済オンライン 著者ページ</span><span class="en">Toyo Keizai Online — author page</span><span class="zh">東洋經濟ONLINE 作者頁</span></span>
+        <span class="lc-sub">toyokeizai.net/list/author/9080</span>
+      </a>
+      <a class="link-card" href="https://sinology-initiative.com/contributors/arata-hirai/" target="_blank" rel="noopener">
+        <span class="lc-name"><span class="ja">中国学ドットコム 執筆者ページ</span><span class="en">Sinology Initiative — contributor page</span><span class="zh">中國學.com 撰稿人頁</span></span>
+        <span class="lc-sub">sinology-initiative.com</span>
+      </a>
+    </div>
+
+    <div class="rise">
+      <h3><span class="ja">東洋経済オンライン</span><span class="en">Toyo Keizai Online</span><span class="zh">東洋經濟ONLINE</span></h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="year">2025.12.25</div>
+          <div class="body">高市首相の「台湾有事」答弁をめぐり雑な議論が広がる理由。制度の位置づけ、日中関係、台湾認識、別々に議論すべき3つの課題<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.12.11</div>
+          <div class="body">なぜ「台湾有事論」が騒がれるようになったのか。「台湾有事は日本有事」は、単なる決意表明でもなく、あり得ない「妄言」でもない<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.8.21</div>
+          <div class="body">機能不全に陥った台湾議会に怒った市民の実態、半年以上にわたり続いた野党議員のリコール運動の顛末<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.8.7</div>
+          <div class="body">台湾で起きた野党議員への大規模リコール運動は制度の悪用か民主主義の進化か。すべて不成立の結果は制度への冷静な民意<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.5.22</div>
+          <div class="body">台湾で問題となっている中国人配偶者に対する厳格化措置、安全保障と人権・民主を両立させる難しさ<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.4.18</div>
+          <div class="body">「武力統一」を発信した中国人インフルエンサーが台湾から退去させられた背景、台湾を単純な構図で語ることのお粗末さ<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.2.6</div>
+          <div class="body">政治の停滞が1年も続く台湾が抱える2つの問題　3期目の少数与党政権下における新たな構図<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2024.11.28</div>
+          <div class="body">司法制度の政治問題化が懸念、台湾政治に危機感　多数派の専制を防ぐはずが、民主主義の不全に<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2024.8.29</div>
+          <div class="body">台湾で「独立」「統一」以外で躍進した新政党の失速　再び2大政党制に戻り、民進党の有利が続く<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2024.6.20</div>
+          <div class="body">混迷する台湾議会、民意は一体どこにあるのか　対中関係ばかり注目されるが台湾社会は冷静だ<span class="n-jp"></span></div>
+        </div>
+      </div>
+
+      <h3><span class="ja">中国学ドットコム</span><span class="en">Sinology Initiative</span><span class="zh">中國學.com</span></h3>
+      <div class="entries">
+        <div class="entry">
+          <div class="year">2026.2.19</div>
+          <div class="body">頼清徳総統への弾劾手続きが映す台湾憲政の苦境<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2026.2.19</div>
+          <div class="body">憲法法廷の機能不全が映す台湾憲政の危機<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.12.12</div>
+          <div class="body">政治と消費を切り分ける市民のプラグマティズム<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2025.12.12</div>
+          <div class="body">犠牲者意識ナショナリズムをどう乗り越えるか<span class="n-jp"></span></div>
+        </div>
+        <div class="entry">
+          <div class="year">2024.9.20</div>
+          <div class="body">現代中国の対日感情はどうなっているのか？<span class="n-jp"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="grants" class="band">
   <div class="wrap">
     <h2 class="rise"><span class="ja">研究助成・プロジェクト</span><span class="en">Grants &amp; Projects</span><span class="zh">研究計畫與補助</span><span class="romaji">Grants &amp; Projects</span></h2>
     <div class="rise">
@@ -963,7 +1064,7 @@ footer a { color: var(--ink-2); }
   </div>
 </section>
 
-<section id="talks" class="band">
+<section id="talks">
   <div class="wrap">
     <h2 class="rise"><span class="ja">学会報告</span><span class="en">Conference Presentations</span><span class="zh">學會發表</span><span class="romaji">Conference Presentations</span></h2>
     <div class="entries rise">
@@ -1006,7 +1107,7 @@ footer a { color: var(--ink-2); }
   </div>
 </section>
 
-<section id="teaching">
+<section id="teaching" class="band">
   <div class="wrap">
     <h2 class="rise"><span class="ja">教育</span><span class="en">Teaching</span><span class="zh">教學</span><span class="romaji">Teaching</span></h2>
     <div class="cols rise">
@@ -1047,7 +1148,7 @@ footer a { color: var(--ink-2); }
   </div>
 </section>
 
-<section id="service" class="band">
+<section id="service">
   <div class="wrap">
     <h2 class="rise"><span class="ja">学会・受賞・社会活動</span><span class="en">Affiliations &amp; Activities</span><span class="zh">學會．獲獎．社會參與</span><span class="romaji">Affiliations &amp; Activities</span></h2>
     <div class="cols rise">
@@ -1093,7 +1194,7 @@ footer a { color: var(--ink-2); }
   </div>
 </section>
 
-<section id="profiles">
+<section id="profiles" class="band">
   <div class="wrap">
     <h2 class="rise"><span class="ja">研究者プロフィール・連絡先</span><span class="en">Profiles &amp; Contact</span><span class="zh">學術檔案與聯絡方式</span><span class="romaji">Profiles &amp; Contact</span></h2>
 
