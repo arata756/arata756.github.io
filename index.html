@@ -88,9 +88,9 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: url("map-1770-v2.jpg");
+  background-image: url("map-1770-v3.jpg");
   background-size: cover;
-  background-position: 65% 40%;
+  background-position: 50% 33%;
   opacity: var(--map-op);
   filter: var(--map-fx);
   pointer-events: none;
@@ -101,15 +101,15 @@ body {
   z-index: 0;
   /* 本文のある左側は地色で覆い、内容の無い右側は地図を見せる */
   background: linear-gradient(96deg,
-    rgba(var(--scrim), 0.94) 0%,
-    rgba(var(--scrim), 0.91) 46%,
-    rgba(var(--scrim), 0.52) 62%,
-    rgba(var(--scrim), 0.22) 100%);
+    rgba(var(--scrim), 0.88) 0%,
+    rgba(var(--scrim), 0.84) 46%,
+    rgba(var(--scrim), 0.48) 62%,
+    rgba(var(--scrim), 0.20) 100%);
   pointer-events: none;
 }
 /* 内容が全幅に広がる画面では一様に覆う */
 @media (max-width: 62rem) {
-  .map-scrim { background: rgba(var(--scrim), 0.90); }
+  .map-scrim { background: rgba(var(--scrim), 0.66); }
 }
 .layer { position: relative; z-index: 1; }
 
@@ -328,10 +328,10 @@ span.ja { display: inline; }
 :root[data-lang="en"] .name-en-logo { display: inline-flex; }
 .name-en-logo .row {
   display: inline-flex;
-  gap: 5px;
-  padding: 5px;
+  gap: 3.5px;
+  padding: 3.5px;
   background: var(--logo-bg);
-  box-shadow: 0 0 0 2px var(--logo-line);
+  box-shadow: 0 0 0 1.5px var(--logo-line);
 }
 .drwrap { display: inline-flex; align-items: center; }
 .drmark {
@@ -343,8 +343,8 @@ span.ja { display: inline; }
   margin-right: 0.12em;
   letter-spacing: -0.01em;
 }
-.name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--logo-line), 8px 8px 0 var(--red); }
-.name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 5px)); margin-top: 0.24em; box-shadow: 0 0 0 2px var(--logo-line), 8px 8px 0 var(--red); }
+.name-en-logo .row-1 { box-shadow: 0 0 0 1.5px var(--logo-line), 8px 8px 0 var(--red); }
+.name-en-logo .row-2 { margin-left: calc(3 * (1.30em + 3.5px)); margin-top: 0.24em; box-shadow: 0 0 0 1.5px var(--logo-line), 8px 8px 0 var(--red); }
 .name-en-logo .cell {
   font-family: var(--gothic);
   font-weight: 800;
@@ -400,14 +400,14 @@ span.ja { display: inline; }
 
 @media (max-width: 54rem) {
   .namecard { gap: 1rem; }
-  .namelogo { gap: 4px; padding: 4px; box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red); }
+  .namelogo { gap: 2.5px; padding: 2.5px; box-shadow: 0 0 0 1.5px var(--logo-line), 5px 5px 0 var(--red); }
   .name-en-logo { font-size: clamp(1.1rem, 3.4vw, 2.2rem); }
-  .name-en-logo .row { gap: 4px; padding: 4px; }
-  .name-en-logo .row-1 { box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red); }
+  .name-en-logo .row { gap: 2.5px; padding: 2.5px; }
+  .name-en-logo .row-1 { box-shadow: 0 0 0 1.5px var(--logo-line), 5px 5px 0 var(--red); }
   .name-en-logo .row-2 {
     margin-left: calc(2.6 * (1.30em + 4px));
     margin-top: 0.55em;
-    box-shadow: 0 0 0 2px var(--logo-line), 5px 5px 0 var(--red);
+    box-shadow: 0 0 0 1.5px var(--logo-line), 5px 5px 0 var(--red);
   }
   .portrait { box-shadow: 0 0 0 1.5px var(--logo-line), 4px 4px 0 var(--red); }
 }
@@ -654,7 +654,7 @@ footer a { color: var(--ink-2); }
 
 <div class="topbar">
   <div class="wrap topbar-in">
-    <a class="brand" href="#top"><span class="ja">平井 新</span><span class="en">A. HIRAI</span><span class="zh">平井 新</span></a>
+    <a class="brand" href="#top"><span class="ja">平井新研究室</span><span class="en">A. HIRAI</span><span class="zh">平井新研究室</span></a>
     <nav class="tabs-nav" aria-label="セクション">
       <ul class="tabs">
         <li><a href="#news"><span class="ja">お知らせ</span><span class="en">News</span><span class="zh">最新消息</span></a></li>
