@@ -567,6 +567,9 @@ h3:first-of-type { margin-top: 0; }
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); gap: clamp(1.7rem, 4vw, 3rem); }
 .field-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
 .field-list li { font-size: 0.96rem; }
+.field-list a { color: var(--red-ink); text-decoration: none; box-shadow: inset 0 -1px 0 transparent; transition: box-shadow .18s; }
+.field-list a:hover { box-shadow: inset 0 -1px 0 currentColor; }
+.field-list a:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 .field-list .k {
   display: block;
   font-family: var(--gothic);
@@ -745,12 +748,24 @@ footer a { color: var(--ink-2); }
     <h2 class="rise"><span class="ja">お知らせ</span><span class="en">News</span><span class="zh">最新消息</span><span class="romaji">News</span></h2>
     <div class="news rise">
       <div class="news-item">
+        <div class="news-date">2026<span class="ja">予定</span><span class="zh">預定</span></div>
+        <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善出版）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span><span class="zh">為日本台灣學會編《台灣文化事典》撰寫「轉型正義．歷史和解」等三個詞條。</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026.6</div>
+        <div class="news-body"><span class="ja">国際和解学会（IARS）2026年年次大会（キプロス）で東アジア島嶼の和解をめぐって報告し、あわせて分科会の司会を務めました。</span><span class="en">Presented on reconciliation in East Asian island territories at the 2026 IARS Annual Conference in Cyprus, and chaired a panel.</span><span class="zh">於國際和解學會（IARS）2026年年會（賽普勒斯）發表東亞島嶼和解相關研究，並擔任分科會主持人。</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026.4</div>
+        <div class="news-body"><span class="ja">東海大学政治経済学部政治学科の専任講師に就任しました（テニュア付与）。あわせて学科教務委員・学部常任教務委員を務めています。</span><span class="en">Appointed Associate Professor (with tenure) in the Department of Political Science, Tokai University; also serving on the departmental and faculty curriculum committees.</span><span class="zh">就任日本東海大學政治經濟學部政治學科專任講師（獲授終身職），並兼任學科教務委員與學部常任教務委員。</span></div>
+      </div>
+      <div class="news-item">
         <div class="news-date">2026.3</div>
         <div class="news-body"><span class="ja">共著論文が <cite>The Sociological Review</cite> 74(2) に掲載されました。</span><span class="en">Co-authored article published in <cite>The Sociological Review</cite> 74(2).</span><span class="zh">合著論文刊登於 <cite>The Sociological Review</cite> 74(2)。</span></div>
       </div>
       <div class="news-item">
-        <div class="news-date">2026<span class="ja">予定</span><span class="zh">預定</span></div>
-        <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善出版）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span><span class="zh">為日本台灣學會編《台灣文化事典》撰寫「轉型正義．歷史和解」等三個詞條。</span></div>
+        <div class="news-date">2026.2</div>
+        <div class="news-body"><span class="ja">中国学ドットコムに「頼清徳総統への弾劾手続きが映す台湾憲政の苦境」「憲法法廷の機能不全が映す台湾憲政の危機」の2本を寄稿しました。</span><span class="en">Published two essays on Taiwan&rsquo;s constitutional predicament in Sinology Initiative.</span><span class="zh">於中國學.com 發表〈賴清德總統彈劾程序所映照的台灣憲政困境〉與〈憲法法庭失能所映照的台灣憲政危機〉兩篇。</span></div>
       </div>
       <div class="news-item">
         <div class="news-date">2025.12</div>
@@ -1249,7 +1264,12 @@ footer a { color: var(--ink-2); }
         </ul>
         <h3><span class="ja">社会活動・メディア</span><span class="en">Public Engagement</span><span class="zh">社會參與．媒體</span></h3>
         <ul class="field-list">
-          <li><span class="k">2021.7</span><span class="ja">TBSテレビ『Nスタ』特集「台湾 若者が支持した「ホラー映画」日本上陸へ」取材協力・出演</span><span class="en">TBS Television, "N-Sta" — interview and research cooperation</span><span class="zh">TBS電視台《N-Sta》專題 採訪協力．出演</span></li>
+          <li><span class="k">2025.4</span><span class="ja">信濃毎日新聞「<a href="https://www.shinmai.co.jp/news/article/CNTS2025040700255" target="_blank" rel="noopener">長野市出身の男性も犠牲者、台湾の民衆弾圧「2・28事件」賠償受けた遺族「過ち正す姿勢あった」</a>」取材協力</span><span class="en"><a href="https://www.shinmai.co.jp/news/article/CNTS2025040700255" target="_blank" rel="noopener">Shinano Mainichi Shimbun</a> — research cooperation for a feature on a Nagano-born victim of Taiwan's 228 Incident</span><span class="zh"><a href="https://www.shinmai.co.jp/news/article/CNTS2025040700255" target="_blank" rel="noopener">信濃每日新聞</a> 採訪協力（台灣二二八事件中一位長野市出身罹難者的報導）</span></li>
+          <li><span class="k">2024.7</span><span class="ja">東海大学同窓会誌『TOKAI』No.215「今、台湾で何が起こっているのか？」寄稿</span><span class="en">Tokai University alumni magazine <cite>TOKAI</cite> No.215 — essay</span><span class="zh">東海大學校友雜誌《TOKAI》No.215 撰稿</span></li>
+          <li><span class="k">2024.5</span><span class="ja">東海大学 望星学塾 望星講座（第486回）「今、台湾で何が起きているのか？」講師</span><span class="en">486th Bosei Lecture, Bosei Gakujuku, Tokai University — lecturer</span><span class="zh">東海大學 望星學塾 望星講座（第486回）講師</span></li>
+          <li><span class="k">2023.3</span><span class="ja">RTI（台湾国際放送）「<a href="https://www.youtube.com/watch?v=GxvaU11XWvo" target="_blank" rel="noopener">Taiwan Insider</a>」解説・出演</span><span class="en"><a href="https://www.youtube.com/watch?v=GxvaU11XWvo" target="_blank" rel="noopener">Radio Taiwan International, "Taiwan Insider"</a> — commentator</span><span class="zh"><a href="https://www.youtube.com/watch?v=GxvaU11XWvo" target="_blank" rel="noopener">RTI（台灣國際廣播電台）「Taiwan Insider」</a> 評論．出演</span></li>
+          <li><span class="k">2021.9</span><span class="ja">The China Project「<a href="https://thechinaproject.com/2021/09/09/in-taiwan-a-contentious-quest-for-transitional-justice/" target="_blank" rel="noopener">In Taiwan, a contentious quest for &lsquo;transitional justice&rsquo;</a>」コメント</span><span class="en"><a href="https://thechinaproject.com/2021/09/09/in-taiwan-a-contentious-quest-for-transitional-justice/" target="_blank" rel="noopener">The China Project, &ldquo;In Taiwan, a contentious quest for &lsquo;transitional justice&rsquo;&rdquo;</a> — expert comment</span><span class="zh"><a href="https://thechinaproject.com/2021/09/09/in-taiwan-a-contentious-quest-for-transitional-justice/" target="_blank" rel="noopener">The China Project</a> 專家評論</span></li>
+          <li><span class="k">2021.7</span><span class="ja">TBSテレビ『Nスタ』特集「<a href="https://www.youtube.com/watch?v=oezIccJBmA0" target="_blank" rel="noopener">台湾 若者が支持した「ホラー映画」日本上陸へ</a>」取材協力・出演</span><span class="en"><a href="https://www.youtube.com/watch?v=oezIccJBmA0" target="_blank" rel="noopener">TBS Television, "N-Sta"</a> — interview and research cooperation</span><span class="zh"><a href="https://www.youtube.com/watch?v=oezIccJBmA0" target="_blank" rel="noopener">TBS電視台《N-Sta》專題</a> 採訪協力．出演</span></li>
           <li><span class="k">2021.6</span><span class="ja">かわさき市民アカデミー「世界を旅する（24）台湾ツアー」講師</span><span class="en">Kawasaki Citizens' Academy — public lecture</span><span class="zh">川崎市民學苑 公開講座講師</span></li>
           <li><span class="k">2020.9</span><span class="ja">北東アジア学会 第26回学術研究大会 分科会コメンテーター</span><span class="en">Discussant, 26th Annual Conference, Japan Association for Northeast Asian Studies</span><span class="zh">東北亞學會 第26屆學術研究大會 分組評論人</span></li>
           <li><span class="k">2017</span><span class="ja">台湾中信金融管理学院 訪日サマースクール「夏日遊學団」講師・コーディネーター</span><span class="en">Lecturer and coordinator, CTBC Business School Summer School</span><span class="zh">台灣中信金融管理學院 訪日暑期學校「夏日遊學團」講師．統籌</span></li>
