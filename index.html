@@ -537,6 +537,19 @@ h3:first-of-type { margin-top: 0; }
 
 /* ---- 原語注記（日本語表示では出さない）---- */
 .n-jp, .n-cn, .n-tr { color: var(--ink-3); font-size: 0.85em; }
+
+/* 本文中のリンク（DOIチップを除く） */
+.news-body a,
+.body a:not(.doi) {
+  color: var(--red-ink);
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 transparent;
+  transition: box-shadow .18s;
+}
+.news-body a:hover,
+.body a:not(.doi):hover { box-shadow: inset 0 -1px 0 currentColor; }
+.news-body a:focus-visible,
+.body a:not(.doi):focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 :root[data-lang="en"] .n-jp::after { content: " (in Japanese)"; }
 :root[data-lang="en"] .n-cn::after { content: " (in Chinese)"; }
 :root[data-lang="en"] .n-tr::after { content: " (translation into Japanese)"; }
@@ -752,6 +765,10 @@ footer a { color: var(--ink-2); }
         <div class="news-body"><span class="ja">日本台湾学会編『台湾文化事典』（丸善出版）に「移行期正義・歴史和解」ほか2項目を執筆します。</span><span class="en">Contributing three entries to the <cite>Encyclopedia of Taiwanese Culture</cite> (Japan Association for Taiwan Studies, ed.).</span><span class="zh">為日本台灣學會編《台灣文化事典》撰寫「轉型正義．歷史和解」等三個詞條。</span></div>
       </div>
       <div class="news-item">
+        <div class="news-date">2026.7</div>
+        <div class="news-body"><span class="ja">北京大学国際関係学院の創立30周年記念文集に、寄稿文「<a href="https://mp.weixin.qq.com/s?__biz=Mzg4ODYzNDYxOQ%3D%3D&amp;mid=2247491665&amp;idx=1&amp;sn=9aa13aa8fd60c7c18b2d5156c8b6e41f&amp;chksm=cffa8dc5f88d04d39defdc82c8ea30053b4a6595b998062b385b1b22d739ba83eba3ccca30ab&amp;cur_album_id=4453352602810073089&amp;scene=189" target="_blank" rel="noopener">回忆在北大留学的点滴</a>」が掲載されました。</span><span class="en">An essay, &ldquo;<a href="https://mp.weixin.qq.com/s?__biz=Mzg4ODYzNDYxOQ%3D%3D&amp;mid=2247491665&amp;idx=1&amp;sn=9aa13aa8fd60c7c18b2d5156c8b6e41f&amp;chksm=cffa8dc5f88d04d39defdc82c8ea30053b4a6595b998062b385b1b22d739ba83eba3ccca30ab&amp;cur_album_id=4453352602810073089&amp;scene=189" target="_blank" rel="noopener">回忆在北大留学的点滴</a>&rdquo; (Recollections of student days at Peking University), appeared in the 30th anniversary collection of the School of International Studies, Peking University.</span><span class="zh">於北京大學國際關係學院創立30週年紀念文集刊出投稿〈<a href="https://mp.weixin.qq.com/s?__biz=Mzg4ODYzNDYxOQ%3D%3D&amp;mid=2247491665&amp;idx=1&amp;sn=9aa13aa8fd60c7c18b2d5156c8b6e41f&amp;chksm=cffa8dc5f88d04d39defdc82c8ea30053b4a6595b998062b385b1b22d739ba83eba3ccca30ab&amp;cur_album_id=4453352602810073089&amp;scene=189" target="_blank" rel="noopener">回忆在北大留学的点滴</a>〉。</span></div>
+      </div>
+      <div class="news-item">
         <div class="news-date">2026.6</div>
         <div class="news-body"><span class="ja">国際和解学会（IARS）2026年年次大会（キプロス）で東アジア島嶼の和解をめぐって報告し、あわせて分科会の司会を務めました。</span><span class="en">Presented on reconciliation in East Asian island territories at the 2026 IARS Annual Conference in Cyprus, and chaired a panel.</span><span class="zh">於國際和解學會（IARS）2026年年會（賽普勒斯）發表東亞島嶼和解相關研究，並擔任分科會主持人。</span></div>
       </div>
@@ -860,6 +877,16 @@ footer a { color: var(--ink-2); }
         <div class="year">2018.10–2020.5</div>
         <div class="body"><span class="ja">研究助手　早稲田大学 地域・地域間研究機構（台湾研究所）</span><span class="en">Research Associate — Institute for Regional and Inter-Regional Studies (Taiwan Research Institute), Waseda University</span><span class="zh">研究助理　早稻田大學 地域．地域間研究機構（台灣研究所）</span></div>
       </div>
+    </div>
+
+    <div class="rise">
+      <h3 style="margin-top:2.9rem"><span class="ja">現在の兼務</span><span class="en">Concurrent Appointments</span><span class="zh">現任兼職</span></h3>
+      <ul class="field-list">
+        <li><span class="k">2024.9–</span><span class="ja">早稲田大学 現代政治経済研究所　特別研究所員</span><span class="en">Special Research Fellow — Waseda Institute of Political Economy, Waseda University</span><span class="zh">早稻田大學 現代政治經濟研究所　特別研究所員</span></li>
+        <li><span class="k">2024.4–</span><span class="ja">東海大学 平和戦略国際研究所　研究員</span><span class="en">Researcher — Institute of Peace Strategy and International Studies, Tokai University</span><span class="zh">日本東海大學 和平戰略國際研究所　研究員</span></li>
+        <li><span class="k">2023.4–</span><span class="ja">早稲田大学 総合研究機構 東アジア法研究所　招聘研究員</span><span class="en">Visiting Research Fellow — Institute of East Asian Law, Waseda University</span><span class="zh">早稻田大學 綜合研究機構 東亞法研究所　招聘研究員</span></li>
+        <li><span class="k">2023.4–</span><span class="ja">早稲田大学 先端社会科学研究所 台湾研究所　招聘研究員</span><span class="en">Visiting Research Fellow — Taiwan Research Institute, Waseda University</span><span class="zh">早稻田大學 尖端社會科學研究所 台灣研究所　招聘研究員</span></li>
+      </ul>
     </div>
   </div>
 </section>
